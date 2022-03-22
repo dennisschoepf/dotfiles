@@ -1,0 +1,33 @@
+[directory]
+truncation_length = 8
+truncation_symbol = "…/"
+
+[sudo]
+style = "bold green"
+symbol = " "
+disabled = false
+
+[character]
+success_symbol = "[](bold green) "
+error_symbol = "[](bold red) "
+vicmd_symbol = "[](bold blue) "
+
+[git_branch]
+symbol = " "
+disabled = false
+
+[git_commit]
+commit_hash_length = 6
+disabled = false
+
+[git_state]
+disabled = false
+
+[git_status]
+disabled = false
+
+[localip]
+disabled = false
+
+[username]
+disabled = false
