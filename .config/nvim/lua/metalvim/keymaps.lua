@@ -40,6 +40,7 @@ wk.register({
 		name = "+config",
 		r = { "<cmd>source $MYVIMRC<cr>", "Reload config" },
 		n = { "<cmd>set number relativenumber<cr>", "Show relative numbers" },
+		i = { "<cmd>PackerInstall<cr>", "Install plugins" },
 	},
   n = { "<cmd>Telescope file_browser path=%:p:h<cr>", "Open file browser" },
 	q = {

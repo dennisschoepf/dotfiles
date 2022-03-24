@@ -23,9 +23,20 @@ return require('packer').startup(function(use)
     run = ':TSUpdate'
   }
 
+  -- Git
+  use 'lewis6991/gitsigns.nvim'
+
   -- Telescope
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-telescope/telescope-file-browser.nvim'
+
+  -- Completion
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/cmp-nvim-lua'
+  use 'David-Kunz/cmp-npm'
+  use 'hrsh7th/nvim-cmp'
 
   -- Keymaps
   use 'folke/which-key.nvim'
