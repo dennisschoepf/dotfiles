@@ -16,12 +16,17 @@ return require('packer').startup(function(use)
   -- UI
   use 'nvim-lualine/lualine.nvim'
   use 'romgrk/barbar.nvim'
+  use 'lukas-reineke/indent-blankline.nvim'
+  use 'windwp/nvim-autopairs'
+  use 'numToStr/Comment.nvim'
 
-  -- Highlighting & Indentation
+  -- Treesitter
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
+  use 'windwp/nvim-ts-autotag'
 
   -- Git
   use 'lewis6991/gitsigns.nvim'
