@@ -21,6 +21,7 @@ export LANG=en_US.UTF-8
 
 # PATH variables
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.local/usr/bin"
 export PATH=$PATH:/usr/local/go/bin
 
 # Preferred editor for local and remote sessions
