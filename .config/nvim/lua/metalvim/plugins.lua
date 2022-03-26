@@ -26,6 +26,10 @@ return require('packer').startup(function(use)
   -- Git
   use 'lewis6991/gitsigns.nvim'
 
+  -- LSP
+  use 'neovim/nvim-lspconfig'
+  use 'williamboman/nvim-lsp-installer'
+
   -- Telescope
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-telescope/telescope-file-browser.nvim'
