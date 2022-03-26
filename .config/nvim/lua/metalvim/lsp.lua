@@ -31,6 +31,9 @@ local function lsp_keymaps(client, bufnr)
   -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
 local on_attach = function(client, bufnr)
   if client.name == 'tsserver' then
     client.resolved_capabilities.document_formatting = false
@@ -55,6 +58,7 @@ lsp_installer.on_server_ready(function(server)
   -- Specify the default options which we'll use to setup all servers
   local serveropts = {
     on_attach = on_attach,
+    capabilities = capabilities
   }
 
   if enhance_server_opts[server.name] then
