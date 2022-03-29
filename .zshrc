@@ -8,7 +8,6 @@ plugins=(
   rsync
   cp
   ubuntu
-  zsh-vi-mode
   zsh-syntax-highlighting
   zsh-autosuggestions
 )
