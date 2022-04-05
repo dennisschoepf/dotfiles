@@ -22,6 +22,7 @@ export LANG=en_US.UTF-8
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.local/usr/bin"
 export PATH=$PATH:/usr/local/go/bin
+export PATH=/usr/local/bin:$PATH
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
