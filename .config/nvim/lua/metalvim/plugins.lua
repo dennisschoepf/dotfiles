@@ -32,8 +32,9 @@ return require('packer').startup(function(use)
   use 'lewis6991/gitsigns.nvim'
 
   -- LSP
-  use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
+  use 'jose-elias-alvarez/null-ls.nvim'
+  use 'neovim/nvim-lspconfig'
 
   -- Telescope
   use 'nvim-telescope/telescope.nvim'
