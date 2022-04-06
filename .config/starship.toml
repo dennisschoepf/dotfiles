@@ -10,9 +10,9 @@ symbol = " "
 disabled = false
 
 [character]
-success_symbol = "[](bold green) "
-error_symbol = "[](bold red) "
-vicmd_symbol = "[](bold blue) "
+success_symbol = "[](bold green) "
+error_symbol = "[](bold red) "
+vicmd_symbol = "[](bold blue) "
 
 [git_branch]
 symbol = " "
