@@ -6,7 +6,6 @@ null_ls.setup({
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.eslint_d,
 		null_ls.builtins.diagnostics.eslint_d,
-		null_ls.builtins.completion.spell,
 	},
 	on_attach = function(client)
 		if client.resolved_capabilities.document_formatting then

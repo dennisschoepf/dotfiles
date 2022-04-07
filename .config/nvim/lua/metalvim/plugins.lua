@@ -42,6 +42,7 @@ return require("packer").startup(function(use)
 	use("williamboman/nvim-lsp-installer")
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("neovim/nvim-lspconfig")
+	use("folke/trouble.nvim")
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
