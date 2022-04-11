@@ -5,6 +5,10 @@ null_ls.setup({
 		null_ls.builtins.code_actions.eslint_d,
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.eslint_d,
+		null_ls.builtins.formatting.prettierd.with({
+			filetypes = { "html", "json", "jsonc", "yaml", "markdown", "toml" },
+			disabled_filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+		}),
 		null_ls.builtins.diagnostics.eslint_d,
 	},
 	on_attach = function(client)
