@@ -4,9 +4,11 @@ null_ls.setup({
 	sources = {
 		null_ls.builtins.code_actions.eslint_d,
 		null_ls.builtins.formatting.stylua,
-		null_ls.builtins.formatting.eslint_d,
+		null_ls.builtins.formatting.eslint_d.with({
+			disabled_filetypes = { "json", "jsonc" },
+		}),
 		null_ls.builtins.formatting.prettierd.with({
-			filetypes = { "html", "json", "jsonc", "yaml", "markdown", "toml" },
+			filetypes = { "html", "yaml", "markdown", "toml" },
 			disabled_filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
 		}),
 		null_ls.builtins.diagnostics.eslint_d,
