@@ -56,3 +56,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # Set up starship prompt
 eval "$(starship init zsh)"
+
+# Enable vi mode
+bindkey -v
