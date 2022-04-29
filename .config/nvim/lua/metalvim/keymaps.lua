@@ -6,6 +6,13 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 wk.register({
+	r = {
+		name = "+react",
+		e = { '<cmd>lua require("react-extract").extract_to_new_file<cr>', "Extract as React component" },
+	},
+}, { prefix = "<leader>", mode = "v" })
+
+wk.register({
 	["."] = { "<cmd>Telescope find_files<cr>", "Find file in repository" },
 	["<leader>"] = { "<cmd>Telescope git_files<cr>", "Find file in repository" },
 	f = {
@@ -44,7 +51,7 @@ wk.register({
 		i = { "<cmd>PackerInstall<cr>", "Install plugins" },
 	},
 	t = {
-		name = "Diagnostics",
+		name = "+diagnostics",
 		d = { "<cmd>Telescope diagnostics<CR>", "Show document diagnostics" },
 	},
 	n = { "<cmd>Telescope file_browser path=%:p:h<cr>", "Open file browser" },

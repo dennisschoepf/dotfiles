@@ -48,6 +48,9 @@ return require("packer").startup(function(use)
 	-- Neovim Lua Dev
 	use("folke/lua-dev.nvim")
 
+	-- React Dev
+	use("napmn/react-extract.nvim")
+
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
