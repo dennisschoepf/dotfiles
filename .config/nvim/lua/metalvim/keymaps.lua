@@ -5,12 +5,7 @@ vim.api.nvim_set_keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-wk.register({
-	r = {
-		name = "+react",
-		e = { '<cmd>lua require("react-extract").extract_to_new_file<cr>', "Extract as React component" },
-	},
-}, { prefix = "<leader>", mode = "v" })
+vim.keymap.set({ "v" }, "<Leader>re", require("react-extract").extract_to_new_file)
 
 wk.register({
 	["."] = { "<cmd>Telescope find_files<cr>", "Find file in repository" },
