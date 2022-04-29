@@ -40,9 +40,13 @@ return require("packer").startup(function(use)
 
 	-- LSP
 	use("williamboman/nvim-lsp-installer")
-	use("jose-elias-alvarez/null-ls.nvim")
 	use("neovim/nvim-lspconfig")
+	use("jose-elias-alvarez/null-ls.nvim")
+	use("junnplus/nvim-lsp-setup")
 	use("folke/trouble.nvim")
+
+	-- Neovim Lua Dev
+	use("folke/lua-dev.nvim")
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
