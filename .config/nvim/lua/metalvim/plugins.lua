@@ -22,7 +22,8 @@ return require("packer").startup(function(use)
 
 	-- UI
 	use("nvim-lualine/lualine.nvim")
-	use("romgrk/barbar.nvim")
+	use("kazhala/close-buffers.nvim")
+	use({ "akinsho/bufferline.nvim", tag = "*" })
 	use("lukas-reineke/indent-blankline.nvim")
 	use("windwp/nvim-autopairs")
 	use("numToStr/Comment.nvim")
@@ -43,7 +44,6 @@ return require("packer").startup(function(use)
 	use("neovim/nvim-lspconfig")
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("junnplus/nvim-lsp-setup")
-	use("folke/trouble.nvim")
 
 	-- Neovim Lua Dev
 	use("folke/lua-dev.nvim")

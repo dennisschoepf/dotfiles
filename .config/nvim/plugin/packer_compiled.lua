@@ -129,6 +129,11 @@ _G.packer_plugins = {
     path = "/Users/dennis/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
+  ["lua-dev.nvim"] = {
+    loaded = true,
+    path = "/Users/dennis/.local/share/nvim/site/pack/packer/start/lua-dev.nvim",
+    url = "https://github.com/folke/lua-dev.nvim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/Users/dennis/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -158,6 +163,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/dennis/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
     url = "https://github.com/williamboman/nvim-lsp-installer"
+  },
+  ["nvim-lsp-setup"] = {
+    loaded = true,
+    path = "/Users/dennis/.local/share/nvim/site/pack/packer/start/nvim-lsp-setup",
+    url = "https://github.com/junnplus/nvim-lsp-setup"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -199,15 +209,20 @@ _G.packer_plugins = {
     path = "/Users/dennis/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
     url = "https://github.com/nvim-telescope/telescope-file-browser.nvim"
   },
+  ["telescope-frecency.nvim"] = {
+    loaded = true,
+    path = "/Users/dennis/.local/share/nvim/site/pack/packer/start/telescope-frecency.nvim",
+    url = "https://github.com/nvim-telescope/telescope-frecency.nvim"
+  },
+  ["telescope-fzf-native.nvim"] = {
+    loaded = true,
+    path = "/Users/dennis/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
+    url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/dennis/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
-  },
-  ["trouble.nvim"] = {
-    loaded = true,
-    path = "/Users/dennis/.local/share/nvim/site/pack/packer/start/trouble.nvim",
-    url = "https://github.com/folke/trouble.nvim"
   },
   ["which-key.nvim"] = {
     loaded = true,

@@ -7,7 +7,6 @@ require("telescope").setup({
 		},
 	},
 	pickers = {},
-	extensions = {},
 })
 
 require("telescope").load_extension("fzf")

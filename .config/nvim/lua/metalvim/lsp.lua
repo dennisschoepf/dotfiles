@@ -1,3 +1,4 @@
+local disable_formatting = require("nvim-lsp-setup.utils").disable_formatting
 local filter = require("metalvim.utils").filter
 local filterReactDTS = require("metalvim.utils").filterReactDTS
 
@@ -38,13 +39,15 @@ require("nvim-lsp-setup").setup({
 		["sumneko_lua"] = require("lua-dev").setup({
 			lspconfig = {
 				on_attach = function(client, _)
-					-- Avoiding LSP formatting conflicts.
 					-- https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Avoiding-LSP-formatting-conflicts
-					require("nvim-lsp-setup.utils").disable_formatting(client)
+					disable_formatting(client)
 				end,
 			},
 		}),
 		["tsserver"] = {
+			on_attach = function(client, _)
+				disable_formatting(client)
+			end,
 			handlers = {
 				["textDocument/definition"] = function(err, result, method, ...)
 					if vim.tbl_islist(result) and #result > 1 then

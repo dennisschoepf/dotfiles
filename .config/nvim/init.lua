@@ -1,7 +1,7 @@
 --[[
-               | |      | |     (_)          
- _ __ ___   ___| |_ __ _| |_   ___ _ __ ___  
-| '_ ` _ \ / _ \ __/ _` | \ \ / / | '_ ` _ \ 
+               | |      | |     (_)
+ _ __ ___   ___| |_ __ _| |_   ___ _ __ ___
+| '_ ` _ \ / _ \ __/ _` | \ \ / / | '_ ` _ \
 | | | | | |  __/ || (_| | |\ V /| | | | | | |
 |_| |_| |_|\___|\__\__,_|_| \_/ |_|_| |_| |_|
 MetalVim Init file
@@ -23,5 +23,4 @@ require("metalvim.git")
 require("metalvim.completion")
 require("metalvim.lsp")
 require("metalvim.null_ls")
-require("metalvim.trouble")
 require("metalvim.keymaps")
