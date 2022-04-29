@@ -60,7 +60,7 @@ require("nvim-lsp-setup").setup({
 			},
 		},
 		["emmet_ls"] = {
-			filetypes = { "html", "css", "typescriptreact", "javascriptreact" },
+			filetypes = { "html", "css" },
 		},
 	},
 })
