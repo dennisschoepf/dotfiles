@@ -6,7 +6,7 @@ require("nvim-lsp-setup").setup({
 	-- nvim-lsp-installer
 	-- https://github.com/williamboman/nvim-lsp-installer#configuration
 	installer = {
-		ensure_installed = { "sumneko_lua", "tsserver", "emmet_ls" },
+		ensure_installed = { "sumneko_lua", "tsserver", "emmet_ls", "jsonls" },
 	},
 	-- Default mappings
 	-- gD = 'lua vim.lsp.buf.declaration()',
@@ -62,5 +62,6 @@ require("nvim-lsp-setup").setup({
 		["emmet_ls"] = {
 			filetypes = { "html", "css" },
 		},
+		["jsonls"] = {},
 	},
 })
