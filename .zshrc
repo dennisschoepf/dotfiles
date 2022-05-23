@@ -60,7 +60,6 @@ if [ "$system_type" = "Darwin" ]; then
   # Mac OS
 else
   # Linux
-  alias kitty="kitty --config .config/kitty-linux/kitty.conf"
 fi
 
 # Set up starship prompt
