@@ -49,6 +49,7 @@ alias gmm="git merge main"
 alias la="exa -F -l -a -h --git"
 alias ll="exa -F -l --git"
 alias ls="exa -F --git"
+alias copyc="xclip -sel c <"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
