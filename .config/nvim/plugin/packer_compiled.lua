@@ -79,10 +79,22 @@ _G.packer_plugins = {
     path = "/home/dennis/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+<<<<<<< HEAD
   ["barbar.nvim"] = {
     loaded = true,
     path = "/home/dennis/.local/share/nvim/site/pack/packer/start/barbar.nvim",
     url = "https://github.com/romgrk/barbar.nvim"
+=======
+  ["bufferline.nvim"] = {
+    loaded = true,
+    path = "/home/dennis/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
+    url = "https://github.com/akinsho/bufferline.nvim"
+  },
+  ["close-buffers.nvim"] = {
+    loaded = true,
+    path = "/home/dennis/.local/share/nvim/site/pack/packer/start/close-buffers.nvim",
+    url = "https://github.com/kazhala/close-buffers.nvim"
+>>>>>>> 20e9d70308c0e40865429bed4b1a36c6483b3250
   },
   ["cmp-buffer"] = {
     loaded = true,
@@ -129,6 +141,14 @@ _G.packer_plugins = {
     path = "/home/dennis/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
+<<<<<<< HEAD
+=======
+  ["lua-dev.nvim"] = {
+    loaded = true,
+    path = "/home/dennis/.local/share/nvim/site/pack/packer/start/lua-dev.nvim",
+    url = "https://github.com/folke/lua-dev.nvim"
+  },
+>>>>>>> 20e9d70308c0e40865429bed4b1a36c6483b3250
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/dennis/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -159,6 +179,14 @@ _G.packer_plugins = {
     path = "/home/dennis/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
     url = "https://github.com/williamboman/nvim-lsp-installer"
   },
+<<<<<<< HEAD
+=======
+  ["nvim-lsp-setup"] = {
+    loaded = true,
+    path = "/home/dennis/.local/share/nvim/site/pack/packer/start/nvim-lsp-setup",
+    url = "https://github.com/junnplus/nvim-lsp-setup"
+  },
+>>>>>>> 20e9d70308c0e40865429bed4b1a36c6483b3250
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/dennis/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -194,21 +222,40 @@ _G.packer_plugins = {
     path = "/home/dennis/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+<<<<<<< HEAD
+=======
+  ["react-extract.nvim"] = {
+    loaded = true,
+    path = "/home/dennis/.local/share/nvim/site/pack/packer/start/react-extract.nvim",
+    url = "https://github.com/napmn/react-extract.nvim"
+  },
+>>>>>>> 20e9d70308c0e40865429bed4b1a36c6483b3250
   ["telescope-file-browser.nvim"] = {
     loaded = true,
     path = "/home/dennis/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
     url = "https://github.com/nvim-telescope/telescope-file-browser.nvim"
   },
+<<<<<<< HEAD
+=======
+  ["telescope-fzf-native.nvim"] = {
+    loaded = true,
+    path = "/home/dennis/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
+    url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
+  },
+>>>>>>> 20e9d70308c0e40865429bed4b1a36c6483b3250
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/dennis/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+<<<<<<< HEAD
   ["trouble.nvim"] = {
     loaded = true,
     path = "/home/dennis/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
   },
+=======
+>>>>>>> 20e9d70308c0e40865429bed4b1a36c6483b3250
   ["which-key.nvim"] = {
     loaded = true,
     path = "/home/dennis/.local/share/nvim/site/pack/packer/start/which-key.nvim",

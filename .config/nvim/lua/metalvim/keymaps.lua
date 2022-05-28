@@ -5,11 +5,13 @@ vim.api.nvim_set_keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.keymap.set({ "v" }, "<Leader>re", require("react-extract").extract_to_new_file)
+
 wk.register({
-	["."] = { "<cmd>Telescope git_files<cr>", "Find file in repository" },
+	["."] = { "<cmd>Telescope find_files<cr>", "Find file in repository" },
+	["<leader>"] = { "<cmd>Telescope git_files<cr>", "Find file in repository" },
 	f = {
 		name = "+file",
-		f = { "<cmd>Telescope find_files<cr>", "Find File" },
 		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
 		s = { "<cmd>w<cr>", "Save currently opened file" },
 		n = { "<cmd>enew<cr>", "Create a new file" },
@@ -28,13 +30,14 @@ wk.register({
 	},
 	b = {
 		name = "+buffer",
-		d = { "<cmd>BufferClose<cr>", "Delete current buffer" },
-		D = { "<cmd>BufferWipeout<cr>", "Delete all buffers" },
-		x = { "<cmd>BufferCloseAllButCurrent<cr>", "Delete all buffers but current" },
-		f = { "<cmd>BufferPin<cr>", "Pin current buffer" },
-		p = { "<cmd>BufferPick<cr>", "Pick a buffer" },
-		h = { "<cmd>BufferPrevious<cr>", "Go to previous buffer" },
-		l = { "<cmd>BufferNext<cr>", "Go to next buffer" },
+		d = { "<cmd>BDelete! this<cr>", "Delete current buffer" },
+		D = { "<cmd>BWipeout! all<cr>", "Delete all buffers" },
+		x = { "<cmd>BWipeout other<cr>", "Delete all buffers but current" },
+		p = { "<cmd>BufferLinePick<cr>", "Pick a buffer" },
+		h = { "<cmd>BufferLineCyclePrev<cr>", "Go to previous buffer" },
+		l = { "<cmd>BufferLineCycleNext<cr>", "Go to next buffer" },
+		H = { "<cmd>BufferLineMovePrev<cr>", "Go to previous buffer" },
+		L = { "<cmd>BufferLineMoveNext<cr>", "Go to next buffer" },
 	},
 	x = {
 		name = "+config",
@@ -43,9 +46,8 @@ wk.register({
 		i = { "<cmd>PackerInstall<cr>", "Install plugins" },
 	},
 	t = {
-		name = "Diagnostics",
-		d = { "<cmd>Trouble document_diagnostics<CR>", "Show document diagnostics" },
-		x = { "<cmd>Trouble workspace_diagnostics<CR>", "Show workspace diagnostics" },
+		name = "+diagnostics",
+		d = { "<cmd>Telescope diagnostics<CR>", "Show document diagnostics" },
 	},
 	n = { "<cmd>Telescope file_browser path=%:p:h<cr>", "Open file browser" },
 	s = { "<cmd>Telescope live_grep<cr>", "Search within project" },
