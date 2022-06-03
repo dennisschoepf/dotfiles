@@ -28,6 +28,9 @@ return require("packer").startup(function(use)
 	use("windwp/nvim-autopairs")
 	use("numToStr/Comment.nvim")
 
+	-- Neorg
+	use({ "nvim-neorg/neorg", requires = "nvim-neorg/neorg-telescope" })
+
 	-- Treesitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
