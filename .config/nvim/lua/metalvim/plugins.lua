@@ -27,9 +27,11 @@ return require("packer").startup(function(use)
 	use("lukas-reineke/indent-blankline.nvim")
 	use("windwp/nvim-autopairs")
 	use("numToStr/Comment.nvim")
+	use({ "folke/zen-mode.nvim" })
 
-	-- Neorg
+	-- Notes
 	use({ "nvim-neorg/neorg", requires = "nvim-neorg/neorg-telescope" })
+	use({ "renerocksai/telekasten.nvim" })
 
 	-- Treesitter
 	use({
