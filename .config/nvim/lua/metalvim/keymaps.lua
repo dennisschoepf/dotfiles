@@ -50,6 +50,16 @@ wk.register({
 		name = "+diagnostics",
 		d = { "<cmd>Telescope diagnostics<CR>", "Show document diagnostics" },
 	},
+	p = {
+		name = "+NPM Packages",
+		s = { "<cmd>:lua require('package-info').show()<CR>", "Show package information" },
+		h = { "<cmd>:lua require('package-info').hide()<CR>", "Hide package information" },
+		u = { "<cmd>:lua require('package-info').update()<CR>", "Update package on line" },
+		d = { "<cmd>:lua require('package-info').delete()<CR>", "Delete package on line" },
+		i = { "<cmd>:lua require('package-info').install()<CR>", "Install a new package" },
+		r = { "<cmd>:lua require('package-info').reinstall()<CR>", "Reinstall dependencies" },
+		v = { "<cmd>:lua require('package-info').change_version()<CR>", "Install a different version" },
+	},
 	n = { "<cmd>Telescope file_browser path=%:p:h<cr>", "Open file browser" },
 	s = { "<cmd>Telescope live_grep<cr>", "Search within project" },
 	z = {

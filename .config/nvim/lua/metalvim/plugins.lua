@@ -28,6 +28,10 @@ return require("packer").startup(function(use)
 	use("windwp/nvim-autopairs")
 	use("numToStr/Comment.nvim")
 	use({ "folke/zen-mode.nvim" })
+	use({
+		"vuki656/package-info.nvim",
+		requires = "MunifTanjim/nui.nvim",
+	})
 
 	-- Notes
 	use({ "nvim-neorg/neorg", requires = "nvim-neorg/neorg-telescope" })
