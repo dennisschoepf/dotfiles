@@ -64,7 +64,7 @@ wk.register({
 	s = { "<cmd>Telescope live_grep<cr>", "Search within project" },
 	z = {
 		name = "+notes",
-		z = { "<cmd>ZenMode<CR>", "Zen Mode" },
+		z = { "<cmd>Neorg workspace main<CR>", "Opens main workspace" },
 	},
 	g = {
 		name = "+git",
