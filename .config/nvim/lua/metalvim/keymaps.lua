@@ -63,16 +63,12 @@ wk.register({
 	n = { "<cmd>Telescope file_browser path=%:p:h<cr>", "Open file browser" },
 	s = { "<cmd>Telescope live_grep<cr>", "Search within project" },
 	z = {
-		name = "+zettelkasten",
-		d = { "<cmd>Telekasten goto_today<CR>", "Go to daily note" },
-		n = { "<cmd>Telekasten new_note<CR>", "Creates new note" },
-		b = { "<cmd>Telekasten show_backlinks<CR>", "Show backlinks for current document" },
-		l = { "<cmd>Telekasten insert_link<CR>", "Insert link to a new note" },
-		o = { "<cmd>Telekasten follow_link<CR>", "Follow link under cursor" },
-		s = { "<cmd>Telekasten search_notes<CR>", "Search in all notes" },
-		t = { "<cmd>Telekasten show_tags<CR>", "Search through all tags" },
-		p = { "<cmd>Telekasten<CR>", "Open telekasten command panel" },
+		name = "+notes",
 		z = { "<cmd>ZenMode<CR>", "Zen Mode" },
+	},
+	g = {
+		name = "+git",
+		g = { "<cmd>LazyGit<CR>", "Opens lazygit" },
 	},
 	q = {
 		q = { "<cmd>qa!<cr>", "Leave neovim" },

@@ -35,7 +35,6 @@ return require("packer").startup(function(use)
 
 	-- Notes
 	use({ "nvim-neorg/neorg", requires = "nvim-neorg/neorg-telescope" })
-	use({ "renerocksai/telekasten.nvim" })
 
 	-- Treesitter
 	use({
@@ -47,6 +46,7 @@ return require("packer").startup(function(use)
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
+	use("kdheepak/lazygit.nvim")
 
 	-- LSP
 	use("williamboman/nvim-lsp-installer")
