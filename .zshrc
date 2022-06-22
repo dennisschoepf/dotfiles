@@ -36,10 +36,11 @@ else
   export EDITOR='nvim'
 fi
 
-# Example aliases
-alias zshconf="nvim ~/.zshrc"
+# General aliases
+alias zshc="nvim ~/.zshrc"
+alias zshr="source ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
-alias npd="npm run dev"
+alias nvimc="cd ~/.config/nvim && nvim"
 alias lg="lazygit"
 alias g="git"
 alias gco="git checkout"
@@ -50,6 +51,17 @@ alias la="exa -F -l -a -h --git"
 alias ll="exa -F -l --git"
 alias ls="exa -F --git"
 alias copyc="xclip -sel c <"
+
+# Work aliases
+alias npd="npm run dev"
+alias cdr="cd ~/Projects/ride"
+alias cdrl="cd ~/Projects/ride/apps/lib"
+alias cdrlb="cd ~/Projects/ride/apps/lib && npm run build"
+alias cdrf="cd ~/Projects/ride/apps/frontend"
+alias cdrq="cd ~/Projects/ride/apps/native/qickets"
+alias cdrqs="cd ~/Projects/ride/apps/backend/edge-services/qickets-service"
+alias cdrms="cd ~/Projects/ride/apps/backend/backend-services/media-service"
+alias cdras="cd ~/Projects/ride/apps/backend/edge-services/abo-service"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

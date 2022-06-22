@@ -2,6 +2,14 @@ local disable_formatting = require("nvim-lsp-setup.utils").disable_formatting
 local filter = require("metalvim.utils").filter
 local filterReactDTS = require("metalvim.utils").filterReactDTS
 
+local custom_capabilities = vim.lsp.protocol.make_client_capabilities()
+
+-- Enable fold via nvim-ufo
+custom_capabilities.textDocument.foldingRange = {
+	dynamicRegistration = false,
+	lineFoldingOnly = true,
+}
+
 require("nvim-lsp-setup").setup({
 	-- nvim-lsp-installer
 	-- https://github.com/williamboman/nvim-lsp-installer#configuration
@@ -31,7 +39,7 @@ require("nvim-lsp-setup").setup({
 		require("nvim-lsp-setup.utils").format_on_save(client)
 	end,
 	-- Global capabilities
-	capabilities = vim.lsp.protocol.make_client_capabilities(),
+	capabilities = custom_capabilities,
 	-- Configuration of LSP servers
 	servers = {
 		-- Install LSP servers automatically
@@ -63,5 +71,6 @@ require("nvim-lsp-setup").setup({
 			filetypes = { "html", "css" },
 		},
 		["jsonls"] = {},
+		["angularls"] = {},
 	},
 })

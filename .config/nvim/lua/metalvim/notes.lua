@@ -12,6 +12,13 @@ require("neorg").setup({
 				workspaces = {
 					main = "~/notes",
 				},
+				default_workspace = "main",
+			},
+		},
+		["core.norg.journal"] = {
+			config = {
+				journal_folder = "daily",
+				strategy = "flat",
 			},
 		},
 	},
