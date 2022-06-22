@@ -12,5 +12,3 @@ require("react-extract").setup({
 	use_autoimport = true,
 	autoimport_defer_ms = 350,
 })
-
-require('package-info').setup()

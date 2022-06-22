@@ -2,19 +2,14 @@ local disable_formatting = require("nvim-lsp-setup.utils").disable_formatting
 local filter = require("metalvim.utils").filter
 local filterReactDTS = require("metalvim.utils").filterReactDTS
 
-local custom_capabilities = vim.lsp.protocol.make_client_capabilities()
-
--- Enable fold via nvim-ufo
-custom_capabilities.textDocument.foldingRange = {
-	dynamicRegistration = false,
-	lineFoldingOnly = true,
-}
+-- Sets up auto formatting for eslint language server
+vim.api.nvim_command("autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll")
 
 require("nvim-lsp-setup").setup({
 	-- nvim-lsp-installer
 	-- https://github.com/williamboman/nvim-lsp-installer#configuration
 	installer = {
-		ensure_installed = { "sumneko_lua", "tsserver", "emmet_ls", "jsonls" },
+		ensure_installed = { "sumneko_lua", "tsserver", "emmet_ls", "jsonls", "eslint", "tailwindcss", "cssls" },
 	},
 	-- Default mappings
 	-- gD = 'lua vim.lsp.buf.declaration()',
@@ -39,7 +34,7 @@ require("nvim-lsp-setup").setup({
 		require("nvim-lsp-setup.utils").format_on_save(client)
 	end,
 	-- Global capabilities
-	capabilities = custom_capabilities,
+	capabilities = vim.lsp.protocol.make_client_capabilities(),
 	-- Configuration of LSP servers
 	servers = {
 		-- Install LSP servers automatically
@@ -72,5 +67,8 @@ require("nvim-lsp-setup").setup({
 		},
 		["jsonls"] = {},
 		["angularls"] = {},
+		["eslint"] = {},
+		["tailwindcss"] = {},
+		["cssls"] = {},
 	},
 })
