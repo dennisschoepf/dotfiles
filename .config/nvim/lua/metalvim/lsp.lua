@@ -9,7 +9,16 @@ require("nvim-lsp-setup").setup({
 	-- nvim-lsp-installer
 	-- https://github.com/williamboman/nvim-lsp-installer#configuration
 	installer = {
-		ensure_installed = { "sumneko_lua", "tsserver", "emmet_ls", "jsonls", "eslint", "tailwindcss", "cssls" },
+		ensure_installed = {
+			"sumneko_lua",
+			"tsserver",
+			"emmet_ls",
+			"jsonls",
+			"eslint",
+			"tailwindcss",
+			"cssls",
+			"angularls",
+		},
 	},
 	-- Default mappings
 	-- gD = 'lua vim.lsp.buf.declaration()',
@@ -67,7 +76,35 @@ require("nvim-lsp-setup").setup({
 		},
 		["jsonls"] = {},
 		["angularls"] = {},
-		["eslint"] = {},
+		["eslint"] = {
+			{
+				codeAction = {
+					disableRuleComment = {
+						enable = true,
+						location = "separateLine",
+					},
+					showDocumentation = {
+						enable = true,
+					},
+				},
+				codeActionOnSave = {
+					enable = false,
+					mode = "all",
+				},
+				format = true,
+				nodePath = "",
+				onIgnoredFiles = "off",
+				packageManager = "npm",
+				quiet = false,
+				rulesCustomizations = {},
+				run = "onType",
+				useESLintClass = false,
+				validate = "on",
+				workingDirectory = {
+					mode = "auto",
+				},
+			},
+		},
 		["tailwindcss"] = {},
 		["cssls"] = {},
 	},
