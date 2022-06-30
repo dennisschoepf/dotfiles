@@ -114,22 +114,15 @@ cmp.setup({
 		behavior = cmp.ConfirmBehavior.Replace,
 		select = false,
 	},
-  window = {
-	  documentation = {
-	  	border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-	  },
-  },
+	window = {
+		documentation = {
+			border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+		},
+	},
 	experimental = {
 		ghost_text = false,
 		native_menu = false,
 	},
-})
-
--- Lua setup
-cmp.setup.filetype("lua", {
-	sources = cmp.config.sources({
-		{ name = "nvim_lua" },
-	}),
 })
 
 -- cmp-commandline setup

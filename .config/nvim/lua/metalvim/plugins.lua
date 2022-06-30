@@ -34,12 +34,17 @@ return require("packer").startup(function(use)
 	})
 	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
 
+	-- Projects
+	use("ahmedkhalf/project.nvim")
+
 	-- Writing
-  use("folke/zen-mode.nvim")
-  use({
-    "iamcco/markdown-preview.nvim",
-    run = function() vim.fn["mkdp#util#install"]() end,
-  })
+	use("folke/zen-mode.nvim")
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	})
 
 	-- Treesitter
 	use({
