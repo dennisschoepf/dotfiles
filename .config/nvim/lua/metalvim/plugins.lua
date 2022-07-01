@@ -33,6 +33,7 @@ return require("packer").startup(function(use)
 		requires = "MunifTanjim/nui.nvim",
 	})
 	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
+	use({ "glepnir/dashboard-nvim" })
 
 	-- Projects
 	use("ahmedkhalf/project.nvim")
