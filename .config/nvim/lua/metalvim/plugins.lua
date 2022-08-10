@@ -49,7 +49,7 @@ return require("packer").startup(function(use)
 	-- Notes
 	use({
 		"nvim-neorg/neorg",
-		requires = "nvim-lua/plenary.nvim",
+		requires = "nvim-neorg/neorg-telescope",
 	})
 
 	-- Treesitter
