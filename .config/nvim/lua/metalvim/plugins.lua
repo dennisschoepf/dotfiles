@@ -19,6 +19,7 @@ return require("packer").startup(function(use)
 
 	-- Colorscheme
 	use("EdenEast/nightfox.nvim")
+	use({ "projekt0n/github-nvim-theme" })
 
 	-- UI
 	use("nvim-lualine/lualine.nvim")
