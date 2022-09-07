@@ -1,13 +1,13 @@
 require("material").setup({
 
 	contrast = {
-		sidebars = true, -- Enable contrast for sidebar-like windows ( for example Nvim-Tree )
-		floating_windows = true, -- Enable contrast for floating windows
+		sidebars = false, -- Enable contrast for sidebar-like windows ( for example Nvim-Tree )
+		floating_windows = false, -- Enable contrast for floating windows
 		line_numbers = false, -- Enable contrast background for line numbers
 		sign_column = false, -- Enable contrast background for the sign column
-		cursor_line = true, -- Enable darker background for the cursor line
+		cursor_line = false, -- Enable darker background for the cursor line
 		non_current_windows = false, -- Enable darker background for non-current windows
-		popup_menu = true, -- Enable lighter background for the popup menu
+		popup_menu = false, -- Enable lighter background for the popup menu
 	},
 
 	italics = {
@@ -15,7 +15,7 @@ require("material").setup({
 		keywords = false, -- Enable italic keywords
 		functions = true, -- Enable italic functions
 		strings = false, -- Enable italic strings
-		variables = false, -- Enable italic variables
+		variables = true, -- Enable italic variables
 	},
 
 	contrast_filetypes = { -- Specify which filetypes get the contrasted (darker) background
@@ -25,7 +25,7 @@ require("material").setup({
 	},
 
 	high_visibility = {
-		lighter = true, -- Enable higher contrast text for lighter style
+		lighter = false, -- Enable higher contrast text for lighter style
 		darker = false, -- Enable higher contrast text for darker style
 	},
 

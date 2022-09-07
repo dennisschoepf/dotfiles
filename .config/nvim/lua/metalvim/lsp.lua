@@ -5,6 +5,9 @@ local filterReactDTS = require("metalvim.utils").filterReactDTS
 -- Sets up auto formatting for eslint language server
 vim.api.nvim_command("autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll")
 
+-- Disables in-line diagnostics
+vim.diagnostic.config({ virtual_text = false })
+
 require("nvim-lsp-setup").setup({
 	-- nvim-lsp-installer
 	-- https://github.com/williamboman/nvim-lsp-installer#configuration
@@ -95,7 +98,7 @@ require("nvim-lsp-setup").setup({
 				nodePath = "",
 				onIgnoredFiles = "off",
 				packageManager = "npm",
-				quiet = false,
+				quiet = true,
 				rulesCustomizations = {},
 				run = "onType",
 				useESLintClass = false,
