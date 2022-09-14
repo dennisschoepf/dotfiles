@@ -61,7 +61,7 @@ require("nvim-lsp-setup").setup({
 		}),
 		["tsserver"] = {
 			on_attach = function(client, _)
-				disable_formatting(client)
+        client.resolved_capabilities.document_formatting = false
 			end,
 			handlers = {
 				["textDocument/definition"] = function(err, result, method, ...)

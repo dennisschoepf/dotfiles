@@ -70,7 +70,14 @@ return require("packer").startup(function(use)
 	use("williamboman/nvim-lsp-installer")
 	use("neovim/nvim-lspconfig")
 	use("jose-elias-alvarez/null-ls.nvim")
-	use("junnplus/nvim-lsp-setup")
+use({
+    'junnplus/lsp-setup.nvim',
+    requires = {
+        'neovim/nvim-lspconfig',
+        'williamboman/mason.nvim',
+        'williamboman/mason-lspconfig.nvim',
+    }
+})
 
 	-- Neovim Lua Dev
 	use("folke/lua-dev.nvim")

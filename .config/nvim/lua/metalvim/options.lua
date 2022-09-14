@@ -29,13 +29,14 @@ local options = {
 	relativenumber = true, -- set relative numbered lines
 	numberwidth = 4, -- set number column width to 2 {default 4}
 	signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
-  linebreak = true,
-  breakat = " ^I!@*-+;:,./?",
+	linebreak = true,
+	breakat = " ^I!@*-+;:,./?",
 	scrolloff = 4, -- is one of my fav
 	sidescrolloff = 4,
-	foldlevel = 20,
-	foldmethod = "expr",
-	foldexpr = "nvim_treesitter#foldexpr()",
+	foldcolumn = "1",
+	foldlevel = 99, -- Using ufo provider need a large value, feel free to decrease the value
+	foldlevelstart = 99,
+	foldenable = true,
 }
 
 vim.opt.shortmess:append("c")

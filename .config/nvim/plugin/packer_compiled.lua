@@ -9,23 +9,26 @@ vim.api.nvim_command('packadd packer.nvim')
 
 local no_errors, error_msg = pcall(function()
 
-  local time
-  local profile_info
-  local should_profile = false
-  if should_profile then
-    local hrtime = vim.loop.hrtime
-    profile_info = {}
-    time = function(chunk, start)
-      if start then
-        profile_info[chunk] = hrtime()
-      else
-        profile_info[chunk] = (hrtime() - profile_info[chunk]) / 1e6
-      end
+_G._packer = _G._packer or {}
+_G._packer.inside_compile = true
+
+local time
+local profile_info
+local should_profile = false
+if should_profile then
+  local hrtime = vim.loop.hrtime
+  profile_info = {}
+  time = function(chunk, start)
+    if start then
+      profile_info[chunk] = hrtime()
+    else
+      profile_info[chunk] = (hrtime() - profile_info[chunk]) / 1e6
     end
-  else
-    time = function(chunk, start) end
   end
-  
+else
+  time = function(chunk, start) end
+end
+
 local function save_profiles(threshold)
   local sorted_times = {}
   for chunk_name, time_taken in pairs(profile_info) do
@@ -38,8 +41,10 @@ local function save_profiles(threshold)
       results[i] = elem[1] .. ' took ' .. elem[2] .. 'ms'
     end
   end
+  if threshold then
+    table.insert(results, '(Only showing plugins that took longer than ' .. threshold .. ' ms ' .. 'to load)')
+  end
 
-  _G._packer = _G._packer or {}
   _G._packer.profile_output = results
 end
 
@@ -129,6 +134,11 @@ _G.packer_plugins = {
     path = "/Users/dennis/.local/share/nvim/site/pack/packer/start/dashboard-nvim",
     url = "https://github.com/glepnir/dashboard-nvim"
   },
+  ["github-nvim-theme"] = {
+    loaded = true,
+    path = "/Users/dennis/.local/share/nvim/site/pack/packer/start/github-nvim-theme",
+    url = "https://github.com/projekt0n/github-nvim-theme"
+  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/Users/dennis/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
@@ -144,6 +154,11 @@ _G.packer_plugins = {
     path = "/Users/dennis/.local/share/nvim/site/pack/packer/start/lazygit.nvim",
     url = "https://github.com/kdheepak/lazygit.nvim"
   },
+  ["lsp-setup.nvim"] = {
+    loaded = true,
+    path = "/Users/dennis/.local/share/nvim/site/pack/packer/start/lsp-setup.nvim",
+    url = "https://github.com/junnplus/lsp-setup.nvim"
+  },
   ["lua-dev.nvim"] = {
     loaded = true,
     path = "/Users/dennis/.local/share/nvim/site/pack/packer/start/lua-dev.nvim",
@@ -158,6 +173,31 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/dennis/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
     url = "https://github.com/iamcco/markdown-preview.nvim"
+  },
+  ["mason-lspconfig.nvim"] = {
+    loaded = true,
+    path = "/Users/dennis/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
+    url = "https://github.com/williamboman/mason-lspconfig.nvim"
+  },
+  ["mason.nvim"] = {
+    loaded = true,
+    path = "/Users/dennis/.local/share/nvim/site/pack/packer/start/mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
+  },
+  ["material.nvim"] = {
+    loaded = true,
+    path = "/Users/dennis/.local/share/nvim/site/pack/packer/start/material.nvim",
+    url = "https://github.com/marko-cerovac/material.nvim"
+  },
+  neorg = {
+    loaded = true,
+    path = "/Users/dennis/.local/share/nvim/site/pack/packer/start/neorg",
+    url = "https://github.com/nvim-neorg/neorg"
+  },
+  ["neorg-telescope"] = {
+    loaded = true,
+    path = "/Users/dennis/.local/share/nvim/site/pack/packer/start/neorg-telescope",
+    url = "https://github.com/nvim-neorg/neorg-telescope"
   },
   ["nightfox.nvim"] = {
     loaded = true,
@@ -188,11 +228,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/dennis/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
     url = "https://github.com/williamboman/nvim-lsp-installer"
-  },
-  ["nvim-lsp-setup"] = {
-    loaded = true,
-    path = "/Users/dennis/.local/share/nvim/site/pack/packer/start/nvim-lsp-setup",
-    url = "https://github.com/junnplus/nvim-lsp-setup"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -282,6 +317,13 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+
+_G._packer.inside_compile = false
+if _G._packer.needs_bufread == true then
+  vim.cmd("doautocmd BufRead")
+end
+_G._packer.needs_bufread = false
+
 if should_profile then save_profiles() end
 
 end)
