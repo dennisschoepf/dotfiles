@@ -16,6 +16,10 @@ function M.filter(arr, fn)
 end
 
 function M.filterReactDTS(value)
+  if type(value.uri) ~= "string" then
+    return false
+  end
+
 	return string.match(value.uri, "react/index.d.ts") == nil
 end
 
