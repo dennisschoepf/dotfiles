@@ -35,6 +35,7 @@ return require("packer").startup(function(use)
 	})
 	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
 	use({ "glepnir/dashboard-nvim" })
+  use({ "romainl/vim-cool" })
 
 	-- Projects
 	use("ahmedkhalf/project.nvim")
