@@ -41,8 +41,8 @@ local c = {
 		},
 		hl = function()
 			return {
-				fg = require("feline.providers.vi_mode").get_mode_color(),
-				bg = "grey_bg",
+				bg = require("feline.providers.vi_mode").get_mode_color(),
+				fg = "bg",
 				style = "bold",
 				name = "NeovimModeHLColor",
 			}
@@ -53,8 +53,8 @@ local c = {
 	gitBranch = {
 		provider = "git_branch",
 		hl = {
-			fg = "bg",
-			bg = "grey_fg",
+			fg = "fg",
+			bg = "bg",
 			style = "bold",
 		},
 		left_sep = "block",
@@ -64,7 +64,7 @@ local c = {
 		provider = "git_diff_added",
 		hl = {
 			fg = "green",
-			bg = "grey_fg",
+			bg = "bg",
 		},
 		left_sep = "block",
 		right_sep = "",
@@ -73,7 +73,7 @@ local c = {
 		provider = "git_diff_removed",
 		hl = {
 			fg = "red",
-			bg = "grey_fg",
+			bg = "bg",
 		},
 		left_sep = "block",
 		right_sep = "block",
@@ -81,8 +81,8 @@ local c = {
 	gitDiffChanged = {
 		provider = "git_diff_changed",
 		hl = {
-			fg = "bg",
-			bg = "grey_fg",
+			fg = "fg",
+			bg = "bg",
 		},
 		left_sep = "block",
 		right_sep = "right_rounded",
@@ -163,8 +163,8 @@ local c = {
 			bg = "grey_bg",
 			style = "italic",
 		},
-		left_sep = "left_rounded",
-		right_sep = "block",
+		left_sep = "block",
+		right_sep = "right_rounded",
 	},
 	position = {
 		provider = "position",
@@ -197,12 +197,14 @@ local c = {
 
 local left = {
 	c.vim_mode,
-	c.separator,
-  c.gitBranch,
-	c.gitDiffAdded,
-  c.gitDiffRemoved,
-	c.gitDiffChanged,
-  
+  c.lsp_client_names,
+	c.diagnostic_errors,
+	c.diagnostic_warnings,
+	c.diagnostic_info,
+	c.diagnostic_hints,
+	c.position,
+	-- c.line_percentage,
+  c.file_encoding,
 }
 
 local middle = {
@@ -211,15 +213,13 @@ local middle = {
 }
 
 local right = {
-	c.file_encoding,
-  c.lsp_client_names,
-	c.diagnostic_errors,
-	c.diagnostic_warnings,
-	c.diagnostic_info,
-	c.diagnostic_hints,
-	c.position,
-	c.line_percentage,
-	-- c.scroll_bar,
+  c.separator,
+  c.separator,
+  c.gitBranch,
+	c.gitDiffAdded,
+  c.gitDiffRemoved,
+	c.gitDiffChanged,
+	--c.scroll_bar,
 }
 
 local components = {
