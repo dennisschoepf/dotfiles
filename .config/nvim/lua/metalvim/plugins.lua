@@ -23,7 +23,9 @@ return require("packer").startup(function(use)
 	use("marko-cerovac/material.nvim")
 
 	-- UI
-	use("nvim-lualine/lualine.nvim")
+	-- use("nvim-lualine/lualine.nvim")
+  -- use({"windwp/windline.nvim"})
+  use({"feline-nvim/feline.nvim"})
 	use("kazhala/close-buffers.nvim")
 	-- use({ "akinsho/bufferline.nvim", tag = "*" })
   use({"noib3/nvim-cokeline"})
@@ -105,6 +107,14 @@ use({
 
 	-- Keymaps
 	use("folke/which-key.nvim")
+
+  -- Colorizer
+  use({
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      require('colorizer').setup()
+    end
+  })
 
 	if packer_bootstrap then
 		require("packer").sync()
