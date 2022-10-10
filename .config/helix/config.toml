@@ -3,11 +3,16 @@ theme = "catppuccin-frappe"
 [editor]
 line-number = "relative"
 cursorline = true
+bufferline = "multiple"
 
 [editor.statusline]
 left = [ "mode", "position" ]
 center = [ "selections" ] 
 right = [ "spinner", "diagnostics",  "file-name", "file-encoding" ] 
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
 
 [editor.cursor-shape]
 insert = "bar"
