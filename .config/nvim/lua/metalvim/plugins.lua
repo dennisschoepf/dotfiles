@@ -21,6 +21,10 @@ return require("packer").startup(function(use)
 	use("EdenEast/nightfox.nvim")
 	use("projekt0n/github-nvim-theme")
 	use("marko-cerovac/material.nvim")
+  use({
+  	"catppuccin/nvim",
+    as = "catppuccin",
+  })
 
 	-- UI
 	-- use("nvim-lualine/lualine.nvim")

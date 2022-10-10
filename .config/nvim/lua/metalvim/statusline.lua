@@ -3,6 +3,23 @@ if not line_ok then
 	return
 end
 
+local catppuccin = {
+	fg = "#c6d0f5",
+	bg = "#303446",
+	green = "#81c8be",
+	yellow = "#e5c890",
+	purple = "#ca9ee6",
+	orange = "#ef9f76",
+	peanut = "#ea999c",
+	red = "#ea999c",
+	aqua = "#85c1dc",
+	darkblue = "#8caaee",
+	dark_red = "#e78284 ",
+  grey_bg = "#626880",
+  grey_fg = "#babbf1",
+  flamingo = "#eebebe"
+}
+
 local material = {
 	fg = "#222221",
 	bg = "#fafafa",
@@ -20,7 +37,7 @@ local material = {
 }
 
 local vi_mode_colors = {
-	NORMAL = "aqua",
+	NORMAL = "flamingo",
 	OP = "green",
 	INSERT = "purple",
 	VISUAL = "darkblue",
@@ -133,8 +150,8 @@ local c = {
 	lsp_client_names = {
 		provider = "lsp_client_names",
 		hl = {
-			fg = "bg",
-			bg = "grey_fg",
+			fg = "grey_fg",
+			bg = "grey_bg",
 			style = "bold",
 		},
 		left_sep = "block",
@@ -237,6 +254,6 @@ local components = {
 
 feline.setup({
 	components = components,
-	theme = material,
+	theme = catppuccin,
 	vi_mode_colors = vi_mode_colors,
 })
