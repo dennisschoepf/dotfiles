@@ -176,6 +176,44 @@ require('packer').startup(function(use)
     end
   })
 
+  -- Treesitter
+  use({ 'windwp/nvim-ts-autotag' })
+  use({
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    config = function()
+      require'nvim-treesitter.configs'.setup {
+        ensure_installed = "all",
+        auto_install = true,
+        ignore_install = { "javascript" },
+        highlight = {
+          enable = true,
+        },
+        highlight = {
+          enable = true,
+        },
+        autotag = {
+          enable = true,
+        }
+      }
+
+      --[[vim.api.nvim_create_autocmd({'BufEnter','BufAdd','BufNew','BufNewFile','BufWinEnter'}, {
+        group = vim.api.nvim_create_augroup('TS_FOLD_WORKAROUND', {}),
+        callback = function()
+          vim.opt.foldmethod     = 'expr'
+          vim.opt.foldexpr       = 'nvim_treesitter#foldexpr()'
+        end
+      })]]--
+    end
+  })
+
+  -- Coding plugins
+  use({ 'neovim/nvim-lspconfig' })
+  use({ 'williamboman/mason.nvim' })
+  use({ 'williamboman/mason-lspconfig.nvim' })
+  use({ 'hrsh7th/nvim-cmp', requires = { 'hrsh7th/cmp-nvim-lsp' } })
+  use({ 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } })
+
   if is_bootstrap then
     require('packer').sync()
   end
@@ -304,3 +342,6 @@ vim.opt.shortmess:append("c")
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
+
+-- Coding (LSP, Formatting, Linting, Completion) is handled in another file
+require("coding")
