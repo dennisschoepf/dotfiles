@@ -207,6 +207,24 @@ require('packer').startup(function(use)
     end
   })
 
+  -- Git signs
+  use({
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup({
+        signs = {
+         add          = {hl = 'GitSignsAdd'   , text = '│', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
+         change       = {hl = 'GitSignsChange', text = '│', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+         delete       = {hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+         topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+         changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+        },
+        signcolumn = true,
+        current_line_blame = false,
+      })
+    end
+  })
+
   -- Coding plugins
   use({ 'neovim/nvim-lspconfig' })
   use({ 'williamboman/mason.nvim' })
@@ -288,6 +306,10 @@ require("which-key").register({
 		r = { "<cmd>source $MYVIMRC<cr>", "Reload config" },
 		n = { "<cmd>set number relativenumber<cr>", "Show relative numbers" },
 		i = { "<cmd>PackerSync<cr>", "Install plugins" },
+	},
+	g = {
+		name = "+git",
+		b = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle git line blame" },
 	},
 	n = { "<cmd>Telescope file_browser path=%:p:h<cr>", "Open file browser" },
 	-- s = { "<cmd>Telescope live_grep<cr>", "Search within project" }, Can you give params to this?
