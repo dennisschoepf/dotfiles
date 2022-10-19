@@ -53,11 +53,16 @@ require("packer").startup(function(use)
 	-- MISC HELPERS
 	use({ "kyazdani42/nvim-web-devicons" })
 	use({ "nvim-lua/plenary.nvim" })
-	-- use({ 'tpope/vim-sleuth' })
 	use({
 		"lukas-reineke/indent-blankline.nvim",
 		config = function()
 			require("indent_blankline").setup({})
+		end,
+	})
+	use({
+		"windwp/nvim-autopairs",
+		config = function()
+			require("nvim-autopairs").setup({})
 		end,
 	})
 
@@ -188,9 +193,6 @@ require("packer").startup(function(use)
 				ensure_installed = "all",
 				auto_install = true,
 				ignore_install = { "javascript" },
-				highlight = {
-					enable = true,
-				},
 				highlight = {
 					enable = true,
 				},
