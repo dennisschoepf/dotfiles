@@ -133,7 +133,7 @@ require("packer").startup(function(use)
 	})
 
 	-- Telescope
-	use({ "nvim-telescope/telescope-fzy-native.nvim" })
+	use({ "nvim-telescope/telescope-fzf-native.nvim" })
 	use({ "nvim-telescope/telescope-file-browser.nvim" })
 	use({
 		"nvim-telescope/telescope.nvim",
@@ -168,9 +168,11 @@ require("packer").startup(function(use)
 					},
 				},
 				extensions = {
-					fzy_native = {
+					fzf = {
+						fuzzy = true,
 						override_generic_sorter = false,
 						override_file_sorter = true,
+						case_mode = "ignore_case",
 					},
 					file_browser = {
 						theme = "ivy",
@@ -179,7 +181,7 @@ require("packer").startup(function(use)
 			})
 
 			require("telescope").load_extension("file_browser")
-			require("telescope").load_extension("fzy_native")
+			require("telescope").load_extension("fzf")
 		end,
 	})
 
