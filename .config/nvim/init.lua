@@ -65,6 +65,7 @@ require("packer").startup(function(use)
 			require("nvim-autopairs").setup({})
 		end,
 	})
+	use({ "romainl/vim-cool" })
 
 	-- COLORSCHEME
 	use({
@@ -170,6 +171,7 @@ require("packer").startup(function(use)
 				extensions = {
 					file_browser = {
 						theme = "ivy",
+						hidden = false,
 					},
 				},
 			})
