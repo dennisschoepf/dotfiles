@@ -252,9 +252,24 @@ require("packer").startup(function(use)
 	use({ "neovim/nvim-lspconfig" })
 	use({ "williamboman/mason.nvim" })
 	use({ "williamboman/mason-lspconfig.nvim" })
-	use({ "hrsh7th/nvim-cmp", requires = { "hrsh7th/cmp-nvim-lsp" } })
+	use({ "hrsh7th/nvim-cmp", requires = { "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-buffer", "hrsh7th/cmp-cmdline" } })
 	use({ "L3MON4D3/LuaSnip", requires = { "saadparwaiz1/cmp_luasnip" } })
 	use({ "jose-elias-alvarez/null-ls.nvim" })
+
+	-- Writing plugins
+	use({
+		"phaazon/mind.nvim",
+		branch = "v2.2",
+	})
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
+		setup = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	})
+	use({ "folke/zen-mode.nvim" })
 
 	if is_bootstrap then
 		require("packer").sync()
@@ -336,8 +351,12 @@ require("which-key").register({
 		name = "+git",
 		b = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle git line blame" },
 	},
-	n = { "<cmd>Telescope file_browser path=%:p:h<cr>", "Open file browser" },
-	-- s = { "<cmd>Telescope live_grep<cr>", "Search within project" }, Can you give params to this?
+	e = { "<cmd>Telescope file_browser path=%:p:h<cr>", "Open file browser" },
+	n = {
+		name = "+notes",
+		o = { "<cmd>MindOpenMain<cr>", "Open main mind tree" },
+		c = { "<cmd>MindClose<cr>", "Close main mind tree" },
+	},
 	q = { "<cmd>qa!<cr>", "Leave neovim" },
 }, { prefix = "<leader>", mode = "n" })
 
@@ -391,3 +410,5 @@ end
 
 -- Coding (LSP, Formatting, Linting, Completion) is handled in another file
 require("coding")
+-- Writing (Journal with mind.nvim, markdown setup)
+require("writing")
