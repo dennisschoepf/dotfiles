@@ -25,13 +25,17 @@ local function filterReactDTS(value)
 end
 
 -- LSP settings.
+
+-- Diagnostics
 vim.diagnostic.config({
 	virtual_text = false,
+	virtual_lines = true,
 	signs = true,
-	underline = false,
+	underline = true,
 	update_in_insert = true,
 	severity_sort = true,
 })
+vim.keymap.set("", "<Leader>cl", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
 
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)

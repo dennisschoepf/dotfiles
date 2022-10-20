@@ -252,6 +252,7 @@ require("packer").startup(function(use)
 	use({ "neovim/nvim-lspconfig" })
 	use({ "williamboman/mason.nvim" })
 	use({ "williamboman/mason-lspconfig.nvim" })
+	use({ "https://git.sr.ht/~whynothugo/lsp_lines.nvim" })
 	use({ "hrsh7th/nvim-cmp", requires = { "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-buffer", "hrsh7th/cmp-cmdline" } })
 	use({ "L3MON4D3/LuaSnip", requires = { "saadparwaiz1/cmp_luasnip" } })
 	use({ "jose-elias-alvarez/null-ls.nvim" })
@@ -351,9 +352,9 @@ require("which-key").register({
 		name = "+git",
 		b = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle git line blame" },
 	},
-	e = { "<cmd>Telescope file_browser path=%:p:h<cr>", "Open file browser" },
-	n = {
-		name = "+notes",
+	n = { "<cmd>Telescope file_browser path=%:p:h<cr>", "Open file browser" },
+	m = {
+		name = "+mind",
 		o = { "<cmd>MindOpenMain<cr>", "Open main mind tree" },
 		c = { "<cmd>MindClose<cr>", "Close main mind tree" },
 	},
