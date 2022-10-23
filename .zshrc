@@ -28,6 +28,8 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.local/usr/bin"
 export PATH=$PATH:/usr/local/go/bin
 export PATH=/usr/local/bin:$PATH
+export PATH=/opt/homebrew/bin:$PATH
+export PATH="$HOME/.config/scripts:$PATH"
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -67,19 +69,34 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# OS specific configuration
-system_type=$(uname -s)
-if [ "$system_type" = "Darwin" ]; then
-  # Mac OS
-else
-  # Linux
-fi
-
 # Set up starship prompt
 eval "$(starship init zsh)"
 
 # Enable vi mode
 bindkey -v
+export KEYTIMEOUT=1
+
+# Change cursor shape for different vi modes.
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] ||
+     [[ $1 = 'block' ]]; then
+    echo -ne '\e[1 q'
+  elif [[ ${KEYMAP} == main ]] ||
+       [[ ${KEYMAP} == viins ]] ||
+       [[ ${KEYMAP} = '' ]] ||
+       [[ $1 = 'beam' ]]; then
+    echo -ne '\e[5 q'
+  fi
+}
+zle -N zle-keymap-select
+zle-line-init() {
+    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+    echo -ne "\e[5 q"
+}
+zle -N zle-line-init
+echo -ne '\e[5 q' # Use beam shape cursor on startup.
+preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+export PATH=$PATH:/Users/dennis/.spicetify
