@@ -60,9 +60,11 @@ require("packer").startup(function(use)
 		end,
 	})
 	use({
-		"windwp/nvim-autopairs",
+		"cohama/lexima.vim",
 		config = function()
-			require("nvim-autopairs").setup({})
+			vim.g.lexima_enable_basic_rules = 1
+			vim.g.lexima_enable_newline_rules = 1
+			vim.g.lexima_enable_endwise_rules = 0
 		end,
 	})
 	use({ "romainl/vim-cool" })
@@ -248,6 +250,9 @@ require("packer").startup(function(use)
 		end,
 	})
 
+	-- Lazygit
+	use({ "kdheepak/lazygit.nvim" })
+
 	-- Coding plugins
 	use({ "neovim/nvim-lspconfig" })
 	use({ "williamboman/mason.nvim" })
@@ -271,6 +276,7 @@ require("packer").startup(function(use)
 		ft = { "markdown" },
 	})
 	use({ "folke/zen-mode.nvim" })
+	use({ "dkarter/bullets.vim" })
 
 	if is_bootstrap then
 		require("packer").sync()
@@ -350,6 +356,7 @@ require("which-key").register({
 	},
 	g = {
 		name = "+git",
+		g = { "<cmd>LazyGit<CR>", "Opens lazygit" },
 		b = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle git line blame" },
 	},
 	n = { "<cmd>Telescope file_browser path=%:p:h<cr>", "Open file browser" },

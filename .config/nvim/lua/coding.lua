@@ -125,9 +125,7 @@ require("lspconfig").sumneko_lua.setup({
 })
 
 require("lspconfig").tsserver.setup({
-	on_attach = function(client, _)
-		client.server_capabilities.documentFormattingProvider = false
-	end,
+	on_attach = on_attach,
 	capabilities = capabilities,
 	handlers = {
 		["textDocument/definition"] = function(err, result, method, ...)
