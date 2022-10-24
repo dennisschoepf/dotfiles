@@ -56,6 +56,13 @@ alias ll="exa -F -l --git"
 alias ls="exa -F --git"
 alias copyc="xclip -sel c <"
 
+# YADM aliases
+alias ys="yadm status"
+alias ya="yadm add -u"
+alias yc="yadm commit -am"
+alias yp="yadm push"
+alias yp="yadm pull"
+
 # Work aliases
 alias npd="npm run dev"
 alias cdr="cd ~/Projects/ride"
@@ -98,6 +105,3 @@ zle-line-init() {
 zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
-
-# 1Password completions
-eval "$(op completion zsh)"; compdef _op op
