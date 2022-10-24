@@ -58,10 +58,9 @@ alias copyc="xclip -sel c <"
 
 # YADM aliases
 alias ys="yadm status"
-alias ya="yadm add -u"
-alias yc="yadm commit -am"
+alias yc="yadm add -u && yadm commit -am"
 alias yp="yadm push"
-alias yp="yadm pull"
+alias yf="yadm pull"
 
 # Work aliases
 alias npd="npm run dev"
