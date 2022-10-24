@@ -1,0 +1,18 @@
+#!/bin/sh
+
+echo "Checking for installed tools"
+
+if [ -z "$1" ]; then
+  echo "Error: No argument supplied"
+elif ! [ -x "$(command -v weasyprint)" ]; then
+  echo 'Error: weasyprint is not installed.' >&2
+elif ! [ -x "$(command -v pandoc)" ]; then
+  echo 'Error: pandoc is not installed.' >&2
+  return
+else
+  echo "All tools installed. Converting file ..."
+  pandoc "$1" --pdf-engine=weasyprint -o "$1.pdf"
+  echo "PDF created."
+fi
+
+

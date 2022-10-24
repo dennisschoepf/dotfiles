@@ -29,7 +29,9 @@ export PATH="$PATH:$HOME/.local/usr/bin"
 export PATH=$PATH:/usr/local/go/bin
 export PATH=/usr/local/bin:$PATH
 export PATH=/opt/homebrew/bin:$PATH
-export PATH="$HOME/.config/scripts:$PATH"
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+export PATH=$PATH:/Users/dennis/.spicetify
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -97,6 +99,5 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-export PATH=$PATH:/Users/dennis/.spicetify
+# 1Password completions
+eval "$(op completion zsh)"; compdef _op op

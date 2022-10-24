@@ -1,14 +1,12 @@
--- General note taking with mind
-require("mind").setup({
-	persistence = {
-		state_path = "~/notes/mind.json",
-		data_dir = "~/notes/data",
-	},
-	ui = {
-		width = 40,
-		root_marker = " ",
-	},
-})
+-- General note taking helpers
+
+-- 1. Create new fleeting note
+
+-- 2. Find note with telescope
+
+-- 3. Follow note link
+
+-- 4. Export note
 
 -- ZenMode setup
 require("zen-mode").setup({
@@ -27,7 +25,11 @@ require("zen-mode").setup({
 	},
 })
 
+vim.cmd("autocmd VimEnter *.md :ZenMode")
+
 -- Markdown Preview
 vim.g.mkdp_markdown_css = vim.fn.expand("~/.config/nvim/assets/markdown.css")
 vim.g.mkdp_page_title = "${name}"
 vim.g.mkdp_theme = "light"
+
+-- Spellchecking

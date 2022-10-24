@@ -82,7 +82,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protoc
 require("mason").setup()
 
 -- Enable the following language servers
-local servers = { "tsserver", "sumneko_lua", "cssls", "jsonls" }
+local servers = { "tsserver", "sumneko_lua", "cssls", "jsonls", "marksman", "html" }
 
 -- Ensure the servers above are installed
 require("mason-lspconfig").setup({
