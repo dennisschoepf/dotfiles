@@ -30,7 +30,7 @@ end
 require("lsp_lines").setup()
 vim.diagnostic.config({
 	virtual_text = false,
-	virtual_lines = true,
+	virtual_lines = false,
 	signs = true,
 	underline = true,
 	update_in_insert = true,
@@ -140,11 +140,8 @@ require("lspconfig").tsserver.setup({
 })
 
 -- nvim-cmp setup
-local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local cmp = require("cmp")
 local luasnip = require("luasnip")
-
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
 cmp.setup({
 	snippet = {

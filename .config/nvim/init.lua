@@ -98,7 +98,7 @@ require("packer").startup(function(use)
 		end,
 	})
 
-	-- Bufferline
+	--[[ Bufferline
 	use({
 		"romgrk/barbar.nvim",
 		config = function()
@@ -110,7 +110,8 @@ require("packer").startup(function(use)
 				icons = false,
 			})
 		end,
-	})
+	})]]
+	--
 
 	-- Statusline
 	use({
@@ -126,7 +127,7 @@ require("packer").startup(function(use)
 				sections = {
 					lualine_a = { "mode" },
 					lualine_b = {},
-					lualine_c = { "branch", "diff", "diagnostics" },
+					lualine_c = { "filename", "branch", "diff", "diagnostics" },
 					lualine_x = { "filetype", "encoding" },
 					lualine_y = {},
 					lualine_z = { "location" },
@@ -386,7 +387,7 @@ local options = {
 	showmode = false, -- we don't need to see things like -- INSERT -- anymore
 	smartindent = true,
 	breakindent = true,
-	showtabline = 2, -- always show tabs
+	showtabline = 0, -- always show tabs
 	smartcase = true, -- smart case
 	splitbelow = true, -- force all horizontal splits to go below current window
 	splitright = true, -- force all vertical splits to go to the right of current window
@@ -408,6 +409,7 @@ local options = {
 	breakat = " ^I!@*-+;:,./?",
 	scrolloff = 6, -- is one of my fav
 	sidescrolloff = 4,
+	winbar = nil,
 }
 
 vim.opt.shortmess:append("c")
