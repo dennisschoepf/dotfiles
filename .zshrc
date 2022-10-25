@@ -55,6 +55,7 @@ alias la="exa -F -l -a -h --git"
 alias ll="exa -F -l --git"
 alias ls="exa -F --git"
 alias copyc="xclip -sel c <"
+alias grml="git branch --merged | egrep -v \"(^\*|master|dev)\" | xargs git branch -d"
 
 # YADM aliases
 alias ys="yadm status"
