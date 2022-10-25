@@ -98,7 +98,7 @@ require("packer").startup(function(use)
 		end,
 	})
 
-	--[[ Bufferline
+	-- Bufferline
 	use({
 		"romgrk/barbar.nvim",
 		config = function()
@@ -110,8 +110,7 @@ require("packer").startup(function(use)
 				icons = false,
 			})
 		end,
-	})]]
-	--
+	})
 
 	-- Statusline
 	use({
@@ -127,7 +126,7 @@ require("packer").startup(function(use)
 				sections = {
 					lualine_a = { "mode" },
 					lualine_b = {},
-					lualine_c = { "filename", "branch", "diff", "diagnostics" },
+					lualine_c = { "branch", "diff", "diagnostics" },
 					lualine_x = { "filetype", "encoding" },
 					lualine_y = {},
 					lualine_z = { "location" },
@@ -349,6 +348,7 @@ require("which-key").register({
 		h = { "<Cmd>BufferPrevious<CR>", "Go to previous buffer" },
 		l = { "<Cmd>BufferNext<CR>", "Go to next buffer" },
 	},
+	B = { "<cmd>Telescope buffers<cr>", "Opens buffers" },
 	x = {
 		name = "+config",
 		r = { "<cmd>source $MYVIMRC<cr>", "Reload config" },
