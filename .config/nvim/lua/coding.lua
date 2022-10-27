@@ -36,7 +36,7 @@ vim.diagnostic.config({
 	update_in_insert = true,
 	severity_sort = true,
 })
-vim.keymap.set("", "<Leader>cl", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
+vim.keymap.set("", "<Leader>e", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
 
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
@@ -226,6 +226,7 @@ null_ls.setup({
 	sources = {
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.prettierd,
+		null_ls.builtins.formatting.eslint_d,
 		null_ls.builtins.code_actions.eslint_d,
 		null_ls.builtins.diagnostics.eslint_d,
 	},
