@@ -82,7 +82,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protoc
 require("mason").setup()
 
 -- Enable the following language servers
-local servers = { "tsserver", "sumneko_lua", "cssls", "jsonls", "marksman", "html" }
+local servers = { "tsserver", "sumneko_lua", "cssls", "jsonls", "marksman", "html", "gopls" }
 
 -- Ensure the servers above are installed
 require("mason-lspconfig").setup({
@@ -102,6 +102,13 @@ end
 local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
+
+require("lspconfig").gopls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+require("go").setup()
+vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport() ]], false)
 
 require("lspconfig").sumneko_lua.setup({
 	on_attach = on_attach,

@@ -261,12 +261,9 @@ require("packer").startup(function(use)
 	use({ "hrsh7th/nvim-cmp", requires = { "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-buffer", "hrsh7th/cmp-cmdline" } })
 	use({ "L3MON4D3/LuaSnip", requires = { "saadparwaiz1/cmp_luasnip" } })
 	use({ "jose-elias-alvarez/null-ls.nvim" })
+	use({ "ray-x/go.nvim" })
 
 	-- Writing plugins
-	use({
-		"phaazon/mind.nvim",
-		branch = "v2.2",
-	})
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",
