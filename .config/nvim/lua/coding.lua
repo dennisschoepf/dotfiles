@@ -1,6 +1,6 @@
 -- Based on https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
 -- Servers to auto install
-local servers = { "tsserver", "sumneko_lua", "cssls", "jsonls", "eslint", "marksman", "html", "gopls" }
+local servers = { "tsserver", "sumneko_lua", "cssls", "jsonls", "marksman", "eslint", "html", "gopls", "efm" }
 
 -- Utils
 local function filter(arr, fn)
@@ -151,6 +151,46 @@ require("lspconfig").tsserver.setup({
 -- ESLint
 vim.cmd([[autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll]])
 
+-- EFM
+local stylua = {
+	formatCommand = "stylua -i",
+	formatStdin = true,
+}
+
+local prettier = {
+	formatCommand = "prettier --stdin-filepath ${INPUT}",
+	formatStdin = true,
+}
+
+require("lspconfig").efm.setup({
+	init_options = { documentFormatting = true },
+	settings = {
+		rootMarkers = { "package.json", ".git/" },
+		languages = {
+			lua = { stylua },
+			typescript = { prettier },
+			javascript = { prettier },
+			["typescript.tsx"] = { prettier },
+			["javascript.jsx"] = { prettier },
+			javascriptreact = { prettier },
+			typescriptreact = { prettier },
+			html = { prettier },
+			css = { prettier },
+		},
+	},
+	filetypes = {
+		"lua",
+		"typescript",
+		"typescript.tsx",
+		"typescriptreact",
+		"javascript",
+		"javascript.jsx",
+		"javascriptreact",
+		"html",
+		"css",
+	},
+})
+
 -- nvim-cmp setup
 local cmp = require("cmp")
 local luasnip = require("luasnip")
@@ -207,7 +247,7 @@ cmp.setup.cmdline("/", {
 	},
 })
 
--- null-ls setup
+--[[ null-ls setup
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local null_ls = require("null-ls")
 
@@ -243,4 +283,5 @@ null_ls.setup({
 })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
+-- vim: ts=2 sts=2 sw=2 et ]]
+--
