@@ -1,4 +1,6 @@
 -- Based on https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
+-- Servers to auto install
+local servers = { "tsserver", "sumneko_lua", "cssls", "jsonls", "eslint", "marksman", "html", "gopls" }
 
 -- Utils
 local function filter(arr, fn)
@@ -81,9 +83,6 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protoc
 -- Setup mason so it can manage external tooling
 require("mason").setup()
 
--- Enable the following language servers
-local servers = { "tsserver", "sumneko_lua", "cssls", "jsonls", "marksman", "html", "gopls" }
-
 -- Ensure the servers above are installed
 require("mason-lspconfig").setup({
 	ensure_installed = servers,
@@ -103,6 +102,7 @@ local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
+-- Go
 require("lspconfig").gopls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
@@ -110,6 +110,7 @@ require("lspconfig").gopls.setup({
 require("go").setup()
 vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport() ]], false)
 
+-- Lua
 require("lspconfig").sumneko_lua.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
@@ -131,6 +132,7 @@ require("lspconfig").sumneko_lua.setup({
 	},
 })
 
+-- Typescript
 require("lspconfig").tsserver.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
@@ -145,6 +147,9 @@ require("lspconfig").tsserver.setup({
 		end,
 	},
 })
+
+-- ESLint
+vim.cmd([[autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll]])
 
 -- nvim-cmp setup
 local cmp = require("cmp")
@@ -232,10 +237,7 @@ end
 null_ls.setup({
 	sources = {
 		null_ls.builtins.formatting.stylua,
-		null_ls.builtins.formatting.prettierd,
-		null_ls.builtins.formatting.eslint_d,
-		null_ls.builtins.code_actions.eslint_d,
-		null_ls.builtins.diagnostics.eslint_d,
+		null_ls.builtins.formatting.prettier,
 	},
 	on_attach = null_ls_on_attach,
 })
