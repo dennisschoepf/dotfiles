@@ -176,6 +176,7 @@ require("lspconfig").efm.setup({
 			typescriptreact = { prettier },
 			html = { prettier },
 			css = { prettier },
+			json = { prettier },
 		},
 	},
 	filetypes = {
@@ -188,6 +189,7 @@ require("lspconfig").efm.setup({
 		"javascriptreact",
 		"html",
 		"css",
+		"json",
 	},
 })
 
