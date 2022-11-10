@@ -47,6 +47,17 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 end
 
 require("packer").startup(function(use)
+  -- COLORSCHEME
+	use({
+		"catppuccin/nvim",
+		as = "catppuccin",
+		config = function()
+			vim.g.catppuccin_flavour = "frappe"
+			require("catppuccin").setup()
+			vim.api.nvim_command("colorscheme catppuccin")
+		end,
+	})
+
 	-- PLUGIN MANAGER
 	use({ "wbthomason/packer.nvim" })
 
@@ -59,26 +70,7 @@ require("packer").startup(function(use)
 			require("indent_blankline").setup({})
 		end,
 	})
-	use({
-		"cohama/lexima.vim",
-		config = function()
-			vim.g.lexima_enable_basic_rules = 1
-			vim.g.lexima_enable_newline_rules = 1
-			vim.g.lexima_enable_endwise_rules = 0
-		end,
-	})
 	use({ "romainl/vim-cool" })
-
-	-- COLORSCHEME
-	use({
-		"catppuccin/nvim",
-		as = "catppuccin",
-		config = function()
-			vim.g.catppuccin_flavour = "frappe"
-			require("catppuccin").setup()
-			vim.api.nvim_command("colorscheme catppuccin")
-		end,
-	})
 
 	-- KEYMAP
 	use({
@@ -196,6 +188,9 @@ require("packer").startup(function(use)
 				highlight = {
 					enable = true,
 				},
+        indent = {
+          enable = true,
+        },
 				autotag = {
 					enable = true,
 				},
