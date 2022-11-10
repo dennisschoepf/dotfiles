@@ -17,6 +17,7 @@ default = "nvim"
 [exec]
 chafa = ["jpg", "jpeg", "png", "gif", "svg"]
 zathura = ["pdf"]
+bat = ["md","ts","tsx","js","jsx","yaml","json","toml","go","py"]
 
 # The foreground color of directory, file and symlink.
 # Pick one of the following:
