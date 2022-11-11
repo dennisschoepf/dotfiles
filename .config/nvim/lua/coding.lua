@@ -133,10 +133,16 @@ require("lspconfig").sumneko_lua.setup({
 })
 
 -- Typescript
-require("lspconfig").tsserver.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-	handlers = {
+require("typescript").setup({
+  disable_commands = false, -- prevent the plugin from creating Vim commands
+  debug = false, -- enable debug logging for commands
+  go_to_source_definition = {
+      fallback = true, -- fall back to standard LSP definition on failure
+  },
+  server = { -- pass options to lspconfig's setup method
+    on_attach = on_attach,
+    capabilities = capabilities,
+    handlers = {
 		["textDocument/definition"] = function(err, result, method, ...)
 			if vim.tbl_islist(result) and #result > 1 then
 				local filtered_result = filter(result, filterReactDTS)
@@ -146,6 +152,7 @@ require("lspconfig").tsserver.setup({
 			vim.lsp.handlers["textDocument/definition"](err, result, method, ...)
 		end,
 	},
+  },
 })
 
 -- ESLint

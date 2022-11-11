@@ -269,6 +269,7 @@ require("packer").startup(function(use)
 	})
 	use({ "folke/zen-mode.nvim" })
 	use({ "dkarter/bullets.vim" })
+  use({ "jose-elias-alvarez/typescript.nvim" })
 
 	if is_bootstrap then
 		require("packer").sync()
@@ -316,6 +317,9 @@ require("which-key").register({
 		f = { ":lua require'telescope.builtin'.builtin.lsp_references{}<cr>", "Show references" },
 		d = { ":lua require'telescope.builtin'.diagnostics{}<cr>", "Show diagnostics" },
 		a = { ":lua vim.lsp.buf.code_action()<cr>", "Code actions" },
+		r = { ":TypescriptRenameFile<cr>", "TS: Rename file" },
+		i = { ":TypescriptFixAll<cr>", "TS: Fix All" },
+		g = { ":TypescriptGoToSourceDefinition<cr>", "TS: Go to source definition" },
 	},
 	w = {
 		name = "+window",
