@@ -47,12 +47,11 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 end
 
 require("packer").startup(function(use)
-  -- COLORSCHEME
+	-- COLORSCHEME
 	use({
 		"catppuccin/nvim",
 		as = "catppuccin",
 		config = function()
-			vim.g.catppuccin_flavour = "frappe"
 			require("catppuccin").setup()
 			vim.api.nvim_command("colorscheme catppuccin")
 		end,
@@ -71,6 +70,13 @@ require("packer").startup(function(use)
 		end,
 	})
 	use({ "romainl/vim-cool" })
+	use({
+		"echasnovski/mini.pairs",
+		branch = "stable",
+		config = function()
+			require("mini.pairs").setup()
+		end,
+	})
 
 	-- KEYMAP
 	use({
@@ -128,7 +134,7 @@ require("packer").startup(function(use)
 	})
 
 	-- Telescope
-	use({ "natecraddock/telescope-zf-native.nvim" })
+	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	use({ "nvim-telescope/telescope-file-browser.nvim" })
 	use({
 		"nvim-telescope/telescope.nvim",
@@ -171,7 +177,7 @@ require("packer").startup(function(use)
 			})
 
 			require("telescope").load_extension("file_browser")
-			require("telescope").load_extension("zf-native")
+			require("telescope").load_extension("fzf")
 		end,
 	})
 
@@ -188,9 +194,9 @@ require("packer").startup(function(use)
 				highlight = {
 					enable = true,
 				},
-        indent = {
-          enable = true,
-        },
+				indent = {
+					enable = true,
+				},
 				autotag = {
 					enable = true,
 				},
@@ -207,7 +213,7 @@ require("packer").startup(function(use)
 		end,
 	})
 
-	-- Git signs
+	-- Git
 	use({
 		"lewis6991/gitsigns.nvim",
 		config = function()
@@ -244,9 +250,8 @@ require("packer").startup(function(use)
 			})
 		end,
 	})
-
-	-- Lazygit
 	use({ "kdheepak/lazygit.nvim" })
+	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 
 	-- Coding plugins
 	use({ "neovim/nvim-lspconfig" })
@@ -269,7 +274,7 @@ require("packer").startup(function(use)
 	})
 	use({ "folke/zen-mode.nvim" })
 	use({ "dkarter/bullets.vim" })
-  use({ "jose-elias-alvarez/typescript.nvim" })
+	use({ "jose-elias-alvarez/typescript.nvim" })
 
 	if is_bootstrap then
 		require("packer").sync()
@@ -355,13 +360,9 @@ require("which-key").register({
 		name = "+git",
 		g = { "<cmd>LazyGit<CR>", "Opens lazygit" },
 		b = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle git line blame" },
+		d = { "<cmd>DiffviewOpen<cr>", "Opens diff viewer" },
 	},
 	n = { "<cmd>Telescope file_browser path=%:p:h<cr>", "Open file browser" },
-	m = {
-		name = "+mind",
-		o = { "<cmd>MindOpenMain<cr>", "Open main mind tree" },
-		c = { "<cmd>MindClose<cr>", "Close main mind tree" },
-	},
 	q = { "<cmd>qa!<cr>", "Leave neovim" },
 }, { prefix = "<leader>", mode = "n" })
 

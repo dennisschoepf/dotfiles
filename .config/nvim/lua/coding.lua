@@ -40,8 +40,19 @@ vim.diagnostic.config({
 })
 vim.keymap.set("", "<Leader>e", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
 
+local lsp_formatting = function(bufnr)
+	vim.lsp.buf.format({
+		filter = function(client)
+			-- apply whatever logic you want (in this example, we'll only use null-ls)
+			return client.name == "efm"
+		end,
+		bufnr = bufnr,
+	})
+end
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
 --  This function gets run when an LSP connects to a particular buffer.
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
 	-- NOTE: Remember that lua is a real programming language, and as such it is possible
 	-- to define small helper and utility functions so you don't have to repeat yourself
 	-- many times.
@@ -72,9 +83,20 @@ local on_attach = function(_, bufnr)
 	nmap("<leader>ct", vim.lsp.buf.type_definition, "[C]ode: [T]ype Definition")
 	nmap("<leader>wa", vim.lsp.buf.add_workspace_folder, "[W]orkspace [A]dd Folder")
 	nmap("<leader>wr", vim.lsp.buf.remove_workspace_folder, "[W]orkspace [R]emove Folder")
-	nmap("<leader>wl", function()
+	nmap("<leader>wf", function()
 		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-	end, "[W]orkspace [L]ist Folders")
+	end, "[W]orkspace List [F]olders")
+
+	if client.supports_method("textDocument/formatting") then
+		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			group = augroup,
+			buffer = bufnr,
+			callback = function()
+				lsp_formatting(bufnr)
+			end,
+		})
+	end
 end
 
 -- nvim-cmp supports additional completion capabilities
@@ -134,25 +156,15 @@ require("lspconfig").sumneko_lua.setup({
 
 -- Typescript
 require("typescript").setup({
-  disable_commands = false, -- prevent the plugin from creating Vim commands
-  debug = false, -- enable debug logging for commands
-  go_to_source_definition = {
-      fallback = true, -- fall back to standard LSP definition on failure
-  },
-  server = { -- pass options to lspconfig's setup method
-    on_attach = on_attach,
-    capabilities = capabilities,
-    handlers = {
-		["textDocument/definition"] = function(err, result, method, ...)
-			if vim.tbl_islist(result) and #result > 1 then
-				local filtered_result = filter(result, filterReactDTS)
-				return vim.lsp.handlers["textDocument/definition"](err, filtered_result, method, ...)
-			end
-
-			vim.lsp.handlers["textDocument/definition"](err, result, method, ...)
-		end,
+	disable_commands = false, -- prevent the plugin from creating Vim commands
+	debug = false, -- enable debug logging for commands
+	go_to_source_definition = {
+		fallback = true, -- fall back to standard LSP definition on failure
 	},
-  },
+	server = { -- pass options to lspconfig's setup method
+		on_attach = on_attach,
+		capabilities = capabilities,
+	},
 })
 
 -- ESLint
@@ -160,7 +172,7 @@ vim.cmd([[autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll]])
 
 -- EFM
 local stylua = {
-	formatCommand = "stylua -i",
+	formatCommand = "stylua -",
 	formatStdin = true,
 }
 
@@ -172,7 +184,7 @@ local prettier = {
 require("lspconfig").efm.setup({
 	init_options = { documentFormatting = true },
 	settings = {
-		rootMarkers = { "package.json", ".git/" },
+		rootMarkers = { "package.json", ".git/", "init.lua" },
 		languages = {
 			lua = { stylua },
 			typescript = { prettier },
