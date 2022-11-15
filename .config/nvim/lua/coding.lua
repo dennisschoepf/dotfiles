@@ -19,11 +19,7 @@ local function filter(arr, fn)
 end
 
 local function filterReactDTS(value)
-	if type(value.uri) ~= "string" then
-		return false
-	end
-
-	return string.match(value.uri, "react/index.d.ts") == nil
+	return string.match(value.targetUri, "d.ts") == nil
 end
 
 -- LSP settings.
@@ -155,6 +151,7 @@ require("lspconfig").sumneko_lua.setup({
 })
 
 -- Typescript
+
 require("typescript").setup({
 	disable_commands = false, -- prevent the plugin from creating Vim commands
 	debug = false, -- enable debug logging for commands
@@ -164,6 +161,16 @@ require("typescript").setup({
 	server = { -- pass options to lspconfig's setup method
 		on_attach = on_attach,
 		capabilities = capabilities,
+		handlers = {
+			["textDocument/definition"] = function(err, result, method, ...)
+				if vim.tbl_islist(result) and #result > 1 then
+					local filtered_result = filter(result, filterReactDTS)
+					return vim.lsp.handlers["textDocument/definition"](err, filtered_result, method, ...)
+				end
+
+				vim.lsp.handlers["textDocument/definition"](err, result, method, ...)
+			end,
+		},
 	},
 })
 
