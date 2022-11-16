@@ -19,7 +19,7 @@ local function filter(arr, fn)
 end
 
 local function filterReactDTS(value)
-	return string.match(value.targetUri, "d.ts") == nil
+	return string.match(value.targetUri, "%.d.ts") == nil
 end
 
 -- LSP settings.

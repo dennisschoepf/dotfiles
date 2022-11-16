@@ -340,7 +340,7 @@ require("which-key").register({
 	},
 	b = {
 		name = "+buffer",
-		d = { "<Cmd>BufferClose<CR>", "Delete current buffer" },
+		d = { "<Cmd>BufferDelete!<CR>", "Delete current buffer" },
 		D = { "<cmd>BufferCloseAllButCurrent<cr>", "Delete all buffers but current" },
 		x = { "<cmd>BufferCloseAllButPinned<cr>", "Delete all buffers" },
 		p = { "<cmd>BufferPick<cr>", "Pick a buffer" },
