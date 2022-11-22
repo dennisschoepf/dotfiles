@@ -74,6 +74,8 @@ alias cdrq="cd ~/Projects/ride/apps/native/qickets"
 alias cdrqs="cd ~/Projects/ride/apps/backend/edge-services/qickets-service"
 alias cdrms="cd ~/Projects/ride/apps/backend/backend-services/media-service"
 alias cdras="cd ~/Projects/ride/apps/backend/edge-services/abo-service"
+alias cdrds="cd ~/Projects/ride/apps/backend/edge-services/dticket-service"
+alias cdrd="cd ~/Projects/ride/apps/native/dticket"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
