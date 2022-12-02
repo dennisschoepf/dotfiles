@@ -173,6 +173,9 @@ require("packer").startup(function(use)
 						theme = "ivy",
 						hidden = false,
 					},
+					fzf = {
+						case_mode = "ignore_case",
+					},
 				},
 			})
 
