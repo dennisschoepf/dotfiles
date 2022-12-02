@@ -95,6 +95,12 @@
   "AWDS Tab Option" : "Recycle",
   "Custom Command" : "No",
   "Keyboard Map" : {
+    "0x7c-0x120000-0x2a" : {
+      "Version" : 1,
+      "Action" : 11,
+      "Text" : "0x02 0x7c",
+      "Label" : ""
+    },
     "0xf700-0x260000" : {
       "Action" : 10,
       "Text" : "[1;6A"
@@ -107,6 +113,18 @@
       "Action" : 11,
       "Text" : "0x00"
     },
+    "0x39-0x100000-0x19" : {
+      "Version" : 1,
+      "Action" : 11,
+      "Text" : "0x02 0x39",
+      "Label" : ""
+    },
+    "0x37-0x100000-0x1a" : {
+      "Version" : 1,
+      "Action" : 11,
+      "Text" : "0x02 0x37",
+      "Label" : ""
+    },
     "0xf709-0x20000" : {
       "Action" : 10,
       "Text" : "[17;2~"
@@ -115,17 +133,15 @@
       "Action" : 10,
       "Text" : "[20;2~"
     },
-    "0xf729-0x20000" : {
-      "Action" : 10,
-      "Text" : "[1;2H"
-    },
     "0xf72b-0x40000" : {
       "Action" : 10,
       "Text" : "[1;5F"
     },
-    "0xf705-0x20000" : {
-      "Action" : 10,
-      "Text" : "[1;2Q"
+    "0x32-0x100000-0x13" : {
+      "Version" : 1,
+      "Action" : 11,
+      "Text" : "0x02 0x32",
+      "Label" : ""
     },
     "0xf703-0x260000" : {
       "Action" : 10,
@@ -135,9 +151,23 @@
       "Action" : 10,
       "Text" : "[1;2A"
     },
+    "0xf705-0x20000" : {
+      "Action" : 10,
+      "Text" : "[1;2Q"
+    },
     "0xf701-0x280000" : {
       "Action" : 11,
       "Text" : "0x1b 0x1b 0x5b 0x42"
+    },
+    "0xf729-0x20000" : {
+      "Action" : 10,
+      "Text" : "[1;2H"
+    },
+    "0x35-0x100000-0x17" : {
+      "Version" : 1,
+      "Action" : 11,
+      "Text" : "0x02 0x35",
+      "Label" : ""
     },
     "0x38-0x40000" : {
       "Action" : 11,
@@ -146,6 +176,18 @@
     "0x33-0x40000" : {
       "Action" : 11,
       "Text" : "0x1b"
+    },
+    "0x36-0x100000-0x16" : {
+      "Version" : 1,
+      "Action" : 11,
+      "Text" : "0x02 0x36",
+      "Label" : ""
+    },
+    "0x74-0x100000-0x11" : {
+      "Version" : 1,
+      "Action" : 11,
+      "Text" : "0x02 0x43",
+      "Label" : ""
     },
     "0xf703-0x220000" : {
       "Action" : 10,
@@ -166,6 +208,12 @@
     "0xf729-0x40000" : {
       "Action" : 10,
       "Text" : "[1;5H"
+    },
+    "0x33-0x100000-0x14" : {
+      "Version" : 1,
+      "Action" : 11,
+      "Text" : "0x02 0x33",
+      "Label" : ""
     },
     "0xf706-0x20000" : {
       "Action" : 10,
@@ -211,9 +259,21 @@
       "Action" : 11,
       "Text" : "0x1d"
     },
+    "0x38-0x100000-0x1c" : {
+      "Version" : 1,
+      "Action" : 11,
+      "Text" : "0x02 0x38",
+      "Label" : ""
+    },
     "0xf70f-0x20000" : {
       "Action" : 10,
       "Text" : "[24;2~"
+    },
+    "0x34-0x100000-0x15" : {
+      "Version" : 1,
+      "Action" : 11,
+      "Text" : "0x02 0x34",
+      "Label" : ""
     },
     "0xf703-0x240000" : {
       "Action" : 10,
@@ -235,6 +295,12 @@
       "Action" : 11,
       "Text" : "0x1e"
     },
+    "0x31-0x100000-0x12" : {
+      "Version" : 1,
+      "Action" : 11,
+      "Text" : "0x02 0x31",
+      "Label" : ""
+    },
     "0xf708-0x20000" : {
       "Action" : 10,
       "Text" : "[15;2~"
@@ -246,6 +312,12 @@
     "0xf70b-0x20000" : {
       "Action" : 10,
       "Text" : "[19;2~"
+    },
+    "0x2d-0x100000-0x1b" : {
+      "Version" : 1,
+      "Action" : 11,
+      "Text" : "0x02 0x2d",
+      "Label" : ""
     },
     "0xf702-0x240000" : {
       "Action" : 10,
