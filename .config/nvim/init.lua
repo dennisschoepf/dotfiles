@@ -23,7 +23,7 @@ local ensureInstalledServers = {
 	"html",
 }
 local opts = { noremap = true, silent = true, expr = true }
-local remapOpts = { remap = true, silent = true, expr = true }
+local remapOpts = { remap = true, silent = true }
 local bufWritePreGroup = vim.api.nvim_create_augroup("BufWritePre", { clear = true })
 
 --[[
