@@ -14,7 +14,16 @@ Version: 1.0.0
 --[[
 HELPER VARIABLES
 --]]
+local ensureInstalledServers = {
+	"tsserver",
+	"eslint",
+	"sumneko_lua",
+	"jsonls",
+	"marksman",
+	"html",
+}
 local opts = { noremap = true, silent = true, expr = true }
+local bufWritePreGroup = vim.api.nvim_create_augroup("BufWritePre", { clear = true })
 
 --[[
 GENERAL SETTINGS
@@ -316,18 +325,6 @@ require("gitsigns").setup({
 -- MARKDOWN-PREVIEW
 vim.g.mkdp_filetypes = { "markdown" }
 
--- LSP-LINES
-require("lsp_lines").setup()
-vim.diagnostic.config({
-	virtual_text = false,
-	virtual_lines = false,
-	signs = true,
-	underline = true,
-	update_in_insert = true,
-	severity_sort = true,
-})
-vim.keymap.set("", "<Leader>e", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
-
 -- LSP-ZERO & NULL-LS
 local lsp = require("lsp-zero")
 
@@ -340,15 +337,10 @@ lsp.set_preferences({
 	},
 })
 lsp.preset("recommended")
-lsp.ensure_installed({
-	"tsserver",
-	"eslint",
-	"sumneko_lua",
-	"jsonls",
-	"marksman",
-	"html",
+lsp.ensure_installed(ensureInstalledServers)
+lsp.nvim_workspace({
+	library = vim.api.nvim_get_runtime_file("", true),
 })
-lsp.nvim_workspace()
 
 -- TSSERVER CUSTOMIZATION
 lsp.configure("tsserver", {
@@ -364,8 +356,17 @@ lsp.configure("tsserver", {
 	},
 })
 
+-- ESLINT CUSTOMIZATION
+vim.api.nvim_create_autocmd("BufWritePre", {
+	command = "EslintFixAll",
+	pattern = { "*.tsx", "*.ts", "*.jsx", "*.js" },
+	group = bufWritePreGroup,
+})
+
+-- LSP SETUP
 lsp.setup()
 
+-- NULL-LS SETUP & FORMAT ON SAVE
 local null_ls = require("null-ls")
 local null_opts = lsp.build_options("null-ls", {})
 
@@ -374,9 +375,9 @@ null_ls.setup({
 		null_opts.on_attach(client, bufnr)
 
 		if client.supports_method("textDocument/formatting") then
-			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+			vim.api.nvim_clear_autocmds({ group = bufWritePreGroup, buffer = bufnr })
 			vim.api.nvim_create_autocmd("BufWritePre", {
-				group = augroup,
+				group = bufWritePreGroup,
 				buffer = bufnr,
 				callback = function()
 					vim.lsp.buf.format({ bufnr = bufnr })
@@ -389,6 +390,18 @@ null_ls.setup({
 		null_ls.builtins.formatting.stylua,
 	},
 })
+
+-- LSP-LINES
+require("lsp_lines").setup()
+vim.diagnostic.config({
+	virtual_text = false,
+	virtual_lines = false,
+	signs = true,
+	underline = true,
+	update_in_insert = true,
+	severity_sort = true,
+})
+vim.keymap.set("", "<Leader>e", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
 
 --[[
 KEYMAPS
