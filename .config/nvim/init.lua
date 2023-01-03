@@ -328,6 +328,7 @@ vim.g.mkdp_filetypes = { "markdown" }
 -- LSP-ZERO & NULL-LS
 local lsp = require("lsp-zero")
 
+lsp.preset("recommended")
 lsp.set_preferences({
 	sign_icons = {
 		error = "E",
@@ -336,10 +337,28 @@ lsp.set_preferences({
 		info = "I",
 	},
 })
-lsp.preset("recommended")
 lsp.ensure_installed(ensureInstalledServers)
-lsp.nvim_workspace({
-	library = vim.api.nvim_get_runtime_file("", true),
+
+-- SUMNEKO_LUA CUSTOMIZATION
+lsp.configure("sumneko_lua", {
+	settings = {
+		Lua = {
+			runtime = {
+				version = "LuaJIT",
+				path = vim.split(package.path, ";"),
+			},
+			diagnostics = {
+				globals = { "vim" },
+			},
+			workspace = {
+				library = vim.api.nvim_get_runtime_file("", true),
+				checkThirdParty = false,
+			},
+			telemetry = {
+				enable = false,
+			},
+		},
+	},
 })
 
 -- TSSERVER CUSTOMIZATION
