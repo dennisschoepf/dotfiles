@@ -23,6 +23,7 @@ local ensureInstalledServers = {
 	"html",
 }
 local opts = { noremap = true, silent = true, expr = true }
+local remapOpts = { remap = true, silent = true, expr = true }
 local bufWritePreGroup = vim.api.nvim_create_augroup("BufWritePre", { clear = true })
 
 --[[
@@ -494,3 +495,7 @@ CUSTOM KEYMAPS (NO PLUGINS)
 vim.keymap.set("", "<Space>", "<Nop>", opts)
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", opts)
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", opts)
+vim.keymap.set("n", "<C-d>", "<C-d>zz", remapOpts)
+vim.keymap.set("n", "<C-u>", "<C-u>zz", remapOpts)
+vim.keymap.set("n", "n", "nzzv", remapOpts)
+vim.keymap.set("n", "N", "Nzzv", remapOpts)
