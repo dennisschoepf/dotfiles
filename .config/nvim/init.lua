@@ -330,9 +330,15 @@ vim.keymap.set("", "<Leader>e", require("lsp_lines").toggle, { desc = "Toggle ls
 
 -- LSP-ZERO & NULL-LS
 local lsp = require("lsp-zero")
-local null_ls = require("null-ls")
-local null_opts = lsp.build_options("null-ls", {})
 
+lsp.set_preferences({
+	sign_icons = {
+		error = "E",
+		warn = "W",
+		hint = "H",
+		info = "I",
+	},
+})
 lsp.preset("recommended")
 lsp.ensure_installed({
 	"tsserver",
@@ -343,7 +349,6 @@ lsp.ensure_installed({
 	"html",
 })
 lsp.nvim_workspace()
-lsp.setup()
 
 -- TSSERVER CUSTOMIZATION
 lsp.configure("tsserver", {
@@ -358,6 +363,11 @@ lsp.configure("tsserver", {
 		end,
 	},
 })
+
+lsp.setup()
+
+local null_ls = require("null-ls")
+local null_opts = lsp.build_options("null-ls", {})
 
 null_ls.setup({
 	on_attach = function(client, bufnr)
