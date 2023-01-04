@@ -121,7 +121,6 @@ require("lazy").setup({
 	"folke/zen-mode.nvim",
 	"dkarter/bullets.vim",
 	-- Coding
-	"jose-elias-alvarez/null-ls.nvim",
 	{ "Maan2003/lsp_lines.nvim", url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim" },
 	{
 		"VonHeikemen/lsp-zero.nvim",
@@ -141,6 +140,8 @@ require("lazy").setup({
 			"L3MON4D3/LuaSnip",
 		},
 	},
+	"jose-elias-alvarez/null-ls.nvim",
+	"jayp0521/mason-null-ls.nvim",
 })
 
 --[[
@@ -415,6 +416,13 @@ null_ls.setup({
 		null_ls.builtins.formatting.prettierd,
 		null_ls.builtins.formatting.stylua,
 	},
+})
+
+-- MASON-NULL-LS FOR AUTOMATIC INSTALLATION OF SOURCES
+require("mason-null-ls").setup({
+	ensure_installed = nil,
+	automatic_installation = true,
+	automatic_setup = false,
 })
 
 -- LSP-LINES
