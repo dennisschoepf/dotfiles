@@ -139,7 +139,6 @@ require("lazy").setup({
 			"hrsh7th/cmp-nvim-lua",
 			-- Snippets
 			"L3MON4D3/LuaSnip",
-			"rafamadriz/friendly-snippets",
 		},
 	},
 })
@@ -329,6 +328,14 @@ vim.g.mkdp_filetypes = { "markdown" }
 local lsp = require("lsp-zero")
 
 lsp.preset("recommended")
+lsp.setup_nvim_cmp({
+	sources = {
+		{ name = "nvim_lsp", keyword_length = 2 },
+		{ name = "path" },
+		{ name = "luasnip", keyword_length = 3 },
+		{ name = "buffer", keyword_length = 3 },
+	},
+})
 lsp.set_preferences({
 	sign_icons = {
 		error = "E",
