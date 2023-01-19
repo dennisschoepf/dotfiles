@@ -117,6 +117,7 @@ require("lazy").setup({
 	"lewis6991/gitsigns.nvim",
 	"kdheepak/lazygit.nvim",
 	"echasnovski/mini.comment",
+	"elihunter173/dirbuf.nvim",
 	-- Writing
 	{ "iamcco/markdown-preview.nvim", build = "cd app && npm install", ft = { "markdown" } },
 	"folke/zen-mode.nvim",
@@ -505,9 +506,12 @@ require("which-key").register({
 		name = "+git",
 		g = { "<cmd>LazyGit<CR>", "Opens lazygit" },
 		b = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle git line blame" },
-		d = { "<cmd>DiffviewOpen<cr>", "Opens diff viewer" },
 	},
-	n = { "<cmd>Telescope file_browser path=%:p:h<cr>", "Open file browser" },
+	o = {
+		name = "+open",
+		d = { "<cmd>Dirbuf<CR>", "Opens directory" },
+		t = { "<cmd>Telescope file_browser path=%:p:h<cr>", "Open telescope file browser" },
+	},
 	q = { "<cmd>qa!<cr>", "Leave neovim" },
 }, { prefix = "<leader>", mode = "n" })
 
