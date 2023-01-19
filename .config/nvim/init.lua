@@ -512,6 +512,7 @@ require("which-key").register({
 		d = { "<cmd>Dirbuf<CR>", "Opens directory" },
 		t = { "<cmd>Telescope file_browser path=%:p:h<cr>", "Open telescope file browser" },
 	},
+	n = { "<cmd>Telescope file_browser path=%:p:h<cr>", "Open telescope file browser" },
 	q = { "<cmd>qa!<cr>", "Leave neovim" },
 }, { prefix = "<leader>", mode = "n" })
 
