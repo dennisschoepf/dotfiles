@@ -116,7 +116,7 @@ require("lazy").setup({
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	"lewis6991/gitsigns.nvim",
 	"kdheepak/lazygit.nvim",
-	"ahmedkhalf/project.nvim",
+	"echasnovski/mini.comment",
 	-- Writing
 	{ "iamcco/markdown-preview.nvim", build = "cd app && npm install", ft = { "markdown" } },
 	"folke/zen-mode.nvim",
@@ -187,8 +187,9 @@ vim.api.nvim_command("colorscheme catppuccin")
 -- INDENT BLANKLINE
 require("indent_blankline").setup({})
 
--- MINI PAIRS
+-- MINI PLUGINS
 require("mini.pairs").setup({})
+require("mini.comment").setup({})
 
 -- WHICH-KEY
 require("which-key").setup({
@@ -387,15 +388,15 @@ lsp.configure("tsserver", {
 local lspUtils = require("lspconfig.util")
 lsp.configure("eslint", {
 	root_dir = lspUtils.root_pattern(
-			".eslintrc",
-			".eslintrc.js",
-			".eslintrc.cjs",
-			".eslintrc.yaml",
-			".eslintrc.yml",
-			".eslintrc.json"
-			-- Disabled to prevent "No ESLint configuration found" exceptions
-			-- 'package.json',
-    ),
+		".eslintrc",
+		".eslintrc.js",
+		".eslintrc.cjs",
+		".eslintrc.yaml",
+		".eslintrc.yml",
+		".eslintrc.json"
+		-- Disabled to prevent "No ESLint configuration found" exceptions
+		-- 'package.json',
+	),
 	settings = {
 		codeActionOnSave = {
 			enable = true,
