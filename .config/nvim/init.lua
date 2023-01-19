@@ -16,8 +16,8 @@ HELPER VARIABLES
 --]]
 local ensureInstalledServers = {
 	"tsserver",
-	"eslint",
 	"sumneko_lua",
+	"eslint",
 	"jsonls",
 	"marksman",
 	"html",
@@ -116,6 +116,7 @@ require("lazy").setup({
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	"lewis6991/gitsigns.nvim",
 	"kdheepak/lazygit.nvim",
+	"ahmedkhalf/project.nvim",
 	-- Writing
 	{ "iamcco/markdown-preview.nvim", build = "cd app && npm install", ft = { "markdown" } },
 	"folke/zen-mode.nvim",
@@ -187,7 +188,7 @@ vim.api.nvim_command("colorscheme catppuccin")
 require("indent_blankline").setup({})
 
 -- MINI PAIRS
-require("mini.pairs").setup()
+require("mini.pairs").setup({})
 
 -- WHICH-KEY
 require("which-key").setup({
@@ -382,11 +383,25 @@ lsp.configure("tsserver", {
 	},
 })
 
--- ESLINT CUSTOMIZATION
-vim.api.nvim_create_autocmd("BufWritePre", {
-	command = "EslintFixAll",
-	pattern = { "*.tsx", "*.ts", "*.jsx", "*.js" },
-	group = bufWritePreGroup,
+-- ESLINT SERVER CUSTOMIZATION
+local lspUtils = require("lspconfig.util")
+lsp.configure("eslint", {
+	root_dir = lspUtils.root_pattern(
+			".eslintrc",
+			".eslintrc.js",
+			".eslintrc.cjs",
+			".eslintrc.yaml",
+			".eslintrc.yml",
+			".eslintrc.json"
+			-- Disabled to prevent "No ESLint configuration found" exceptions
+			-- 'package.json',
+    ),
+	settings = {
+		codeActionOnSave = {
+			enable = true,
+			mode = "all",
+		},
+	},
 })
 
 -- LSP SETUP
@@ -412,9 +427,6 @@ null_ls.setup({
 		end
 	end,
 	sources = {
-		null_ls.builtins.code_actions.eslint_d,
-		null_ls.builtins.diagnostics.eslint_d,
-		null_ls.builtins.formatting.eslint_d,
 		null_ls.builtins.formatting.prettierd,
 		null_ls.builtins.formatting.stylua,
 	},
