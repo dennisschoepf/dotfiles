@@ -212,6 +212,7 @@ require("bufferline").setup({
 	maximum_length = 35,
 	closable = false,
 	icons = false,
+	highlight_visible = true,
 })
 
 -- STATUSLINE
