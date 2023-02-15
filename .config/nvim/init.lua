@@ -180,7 +180,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 --[[
 PLUGIN CONFIGURATION
 --]]
-
 -- COLORSCHEME
 require("catppuccin").setup()
 vim.api.nvim_command("colorscheme catppuccin")
@@ -351,7 +350,7 @@ lsp.set_preferences({
 lsp.ensure_installed(ensureInstalledServers)
 
 -- SUMNEKO_LUA CUSTOMIZATION
-lsp.configure("sumneko_lua", {
+lsp.configure("lua_ls", {
 	settings = {
 		Lua = {
 			runtime = {
