@@ -16,7 +16,7 @@ HELPER VARIABLES
 --]]
 local ensureInstalledServers = {
 	"tsserver",
-	"sumneko_lua",
+	"lua_ls",
 	"eslint",
 	"jsonls",
 	"marksman",
@@ -135,11 +135,8 @@ require("lazy").setup({
 			"hrsh7th/nvim-cmp",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
-			"saadparwaiz1/cmp_luasnip",
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-nvim-lua",
-			-- Snippets
-			"L3MON4D3/LuaSnip",
 		},
 	},
 	"jose-elias-alvarez/null-ls.nvim",
@@ -335,7 +332,6 @@ lsp.setup_nvim_cmp({
 	sources = {
 		{ name = "nvim_lsp", keyword_length = 2 },
 		{ name = "path" },
-		{ name = "luasnip", keyword_length = 3 },
 		{ name = "buffer", keyword_length = 3 },
 	},
 })
