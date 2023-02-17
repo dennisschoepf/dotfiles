@@ -8,7 +8,8 @@
 
 Config Author: Dennis Schoepf
 Version: 1.0.0
-]]--
+]]
+--
 
 require("dnsc.leader")
 require("dnsc.options")
