@@ -17,7 +17,8 @@ local plugins = {
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		},
 	},
-	-- File Management ?
+	-- File/Folder Management
+	"tpope/vim-vinegar",
 	-- Treesitter (and TS-based plugins)
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	"windwp/nvim-ts-autotag",
