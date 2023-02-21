@@ -18,7 +18,7 @@ local plugins = {
 		},
 	},
 	-- File/Folder Management
-	"tpope/vim-vinegar",
+	"tamago324/lir.nvim",
 	-- Treesitter (and TS-based plugins)
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	"windwp/nvim-ts-autotag",
