@@ -44,7 +44,7 @@ local lsp = require("lsp-zero").preset({
 
 lsp.setup_nvim_cmp({
 	sources = {
-		{ name = "nvim_lsp", keyword_length = 2 },
+		{ name = "nvim_lsp", keyword_length = 1 },
 		{ name = "path" },
 		{ name = "buffer", keyword_length = 3 },
 	},
