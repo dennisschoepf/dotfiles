@@ -49,7 +49,13 @@ local plugins = {
 		},
 	},
 	-- NULL-LS
-	"jose-elias-alvarez/null-ls.nvim",
+	{
+		"jose-elias-alvarez/null-ls.nvim",
+		dependencies = {
+			"williamboman/mason.nvim",
+			"jay-babu/mason-null-ls.nvim",
+		},
+	},
 	-- Keybindings
 	"folke/which-key.nvim",
 }

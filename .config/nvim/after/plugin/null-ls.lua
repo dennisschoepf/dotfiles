@@ -18,7 +18,9 @@ local null_opts = lsp.build_options("null-ls", {
 			vim.api.nvim_create_autocmd("BufWritePre", {
 				group = augroup,
 				buffer = bufnr,
-				callback = format_callback(bufnr),
+				callback = function()
+					format_callback(bufnr)
+				end,
 			})
 		end
 	end,
@@ -33,4 +35,10 @@ null_ls.setup({
 		null_ls.builtins.formatting.eslint_d,
 		null_ls.builtins.formatting.stylua,
 	},
+})
+
+require("mason-null-ls").setup({
+	ensure_installed = nil,
+	automatic_installation = true,
+	automatic_setup = false,
 })
