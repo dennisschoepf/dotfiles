@@ -73,9 +73,8 @@ which_key.register({
 	},
 	o = {
 		name = "+open",
-		d = { "<cmd>Dirbuf<CR>", "Opens directory" },
 		t = { "<cmd>Telescope file_browser path=%:p:h<cr>", "Open telescope file browser" },
 	},
-	n = { "<cmd>edit %:p:h<cr>", "Open oil file browser" },
+	n = { "<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>", "Open file browser" },
 	q = { "<cmd>qa!<cr>", "Leave neovim" },
 }, { prefix = "<leader>", mode = "n" })

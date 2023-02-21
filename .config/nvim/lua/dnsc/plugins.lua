@@ -15,10 +15,10 @@ local plugins = {
 		version = "0.1.1",
 		dependencies = {
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+			"nvim-telescope/telescope-file-browser.nvim",
 		},
 	},
 	-- File/Folder Management
-	"tamago324/lir.nvim",
 	-- Treesitter (and TS-based plugins)
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	"windwp/nvim-ts-autotag",

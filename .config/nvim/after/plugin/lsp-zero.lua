@@ -1,7 +1,6 @@
 local ensureInstalledServers = {
 	"tsserver",
 	"lua_ls",
-	"eslint",
 	"jsonls",
 	"html",
 	"cssls",
@@ -96,26 +95,6 @@ lsp.configure("tsserver", {
 
 			vim.lsp.handlers["textDocument/definition"](err, result, method, ...)
 		end,
-	},
-})
-
--- ESLINT SERVER CUSTOMIZATION
-lsp.configure("eslint", {
-	root_dir = lspUtils.root_pattern(
-		".eslintrc",
-		".eslintrc.js",
-		".eslintrc.cjs",
-		".eslintrc.yaml",
-		".eslintrc.yml",
-		".eslintrc.json"
-		-- Disabled to prevent "No ESLint configuration found" exceptions
-		-- 'package.json',
-	),
-	settings = {
-		codeActionOnSave = {
-			enable = true,
-			mode = "all",
-		},
 	},
 })
 
