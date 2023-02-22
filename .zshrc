@@ -23,6 +23,10 @@ export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 
+# Deno
+export DENO_INSTALL="/Users/dennis/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
 # PATH variables
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.local/usr/bin"
