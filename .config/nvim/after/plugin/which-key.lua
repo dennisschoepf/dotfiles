@@ -75,6 +75,14 @@ which_key.register({
 		name = "+open",
 		t = { "<cmd>Telescope file_browser path=%:p:h<cr>", "Open telescope file browser" },
 	},
+	t = {
+		name = "+trouble (lsp-diagnostics)",
+		d = { "<cmd>TroubleToggle document_diagnostics<cr>", "Open trouble UI for document diagnostics" },
+		w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Open trouble UI for workspace diagnostics" },
+		q = { "<cmd>TroubleToggle quickfix<cr>", "Open trouble quickfix list" },
+		r = { "<cmd>TroubleToggle lsp_references<cr>", "Open lsp references in trouble UI" },
+	},
 	n = { "<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>", "Open file browser" },
+	e = { "<cmd>lua vim.lsp.buf.format()<cr>", "Show diagnostics in float window" },
 	q = { "<cmd>qa!<cr>", "Leave neovim" },
 }, { prefix = "<leader>", mode = "n" })

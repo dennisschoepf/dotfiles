@@ -55,6 +55,8 @@ local plugins = {
 			"jay-babu/mason-null-ls.nvim",
 		},
 	},
+	-- Trouble (LSP Diagnostics)
+	"folke/trouble.nvim",
 	-- Keybindings
 	"folke/which-key.nvim",
 }
