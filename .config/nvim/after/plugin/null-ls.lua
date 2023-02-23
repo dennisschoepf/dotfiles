@@ -11,9 +11,45 @@ local format_callback = function(bufnr)
 	})
 end
 
-local has_eslint_config = function(utils)
-	return utils.root_has_file({ ".eslintrc.js", ".eslintrc.json" })
+local string_starts_with = function(str, start)
+	return string.sub(str, 1, #start) == start
 end
+
+local create_runtime_condition = function(config_names)
+	local bufnr_cache = {}
+	local config_path_cache = {}
+
+	return function(params)
+		if bufnr_cache[params.bufnr] ~= nil then
+			return bufnr_cache[params.bufnr]
+		else
+			for _, cached_config_path in ipairs(config_path_cache) do
+				if string_starts_with(params.bufname, cached_config_path) then
+					bufnr_cache[params.bufnr] = true
+					return true
+				end
+			end
+		end
+
+		local config_path = require("lspconfig").util.root_pattern(config_names)(params.bufname)
+
+		local has_config = config_path ~= nil
+		if has_config then
+			table.insert(config_path_cache, config_path)
+		end
+		bufnr_cache[params.bufnr] = has_config
+
+		return has_config
+	end
+end
+
+local eslint_runtime_condition = create_runtime_condition({
+	".eslintrc.cjs",
+	".eslintrc.js",
+	".eslintrc.json",
+	".eslintrc.yaml",
+	".eslintrc.yml",
+})
 
 local null_opts = lsp.build_options("null-ls", {
 	on_attach = function(client, bufnr)
@@ -36,14 +72,10 @@ null_ls.setup({
 		null_ls.builtins.formatting.prettierd,
 		null_ls.builtins.code_actions.eslint_d,
 		null_ls.builtins.diagnostics.eslint_d.with({
-			condition = function(utils)
-				has_eslint_config(utils)
-			end,
+			runtime_condition = eslint_runtime_condition,
 		}),
 		null_ls.builtins.formatting.eslint_d.with({
-			condition = function(utils)
-				has_eslint_config(utils)
-			end,
+			runtime_condition = eslint_runtime_condition,
 		}),
 		null_ls.builtins.formatting.stylua,
 	},
