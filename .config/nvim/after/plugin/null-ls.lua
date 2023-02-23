@@ -11,6 +11,10 @@ local format_callback = function(bufnr)
 	})
 end
 
+local has_eslint_config = function(utils)
+	return utils.root_has_file({ ".eslintrc.js", ".eslintrc.json" })
+end
+
 local null_opts = lsp.build_options("null-ls", {
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
@@ -31,8 +35,16 @@ null_ls.setup({
 	sources = {
 		null_ls.builtins.formatting.prettierd,
 		null_ls.builtins.code_actions.eslint_d,
-		null_ls.builtins.diagnostics.eslint_d,
-		null_ls.builtins.formatting.eslint_d,
+		null_ls.builtins.diagnostics.eslint_d.with({
+			condition = function(utils)
+				has_eslint_config(utils)
+			end,
+		}),
+		null_ls.builtins.formatting.eslint_d.with({
+			condition = function(utils)
+				has_eslint_config(utils)
+			end,
+		}),
 		null_ls.builtins.formatting.stylua,
 	},
 })
