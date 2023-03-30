@@ -12,7 +12,6 @@ local ensureInstalledServers = {
 	"tailwindcss",
 	"yamlls",
 	"bashls",
-	"emmet_ls",
 	"denols",
 }
 
