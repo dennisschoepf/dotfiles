@@ -1,3 +1,5 @@
+local cmp = require("cmp")
+
 local ensureInstalledServers = {
 	"tsserver",
 	"lua_ls",
@@ -38,25 +40,17 @@ local lspUtils = require("lspconfig.util")
 local lsp = require("lsp-zero").preset({
 	name = "minimal",
 	set_lsp_keymaps = { preserve_mappings = false },
-	manage_nvim_cmp = true,
+	manage_nvim_cmp = {
+		set_basic_mappings = true,
+		set_extra_mappings = true,
+		set_sources = false,
+		use_luasnip = false,
+		set_format = true,
+		documentation_window = true,
+	},
 	suggest_lsp_servers = true,
-})
-
-lsp.setup_nvim_cmp({
-	sources = {
-		{ name = "nvim_lsp", keyword_length = 1 },
-		{ name = "path" },
-		{ name = "buffer", keyword_length = 3 },
-	},
-})
-
-lsp.set_preferences({
-	sign_icons = {
-		error = "E",
-		warn = "W",
-		hint = "H",
-		info = "I",
-	},
+	configure_diagnostics = true,
+	float_border = "rounded",
 })
 
 lsp.ensure_installed(ensureInstalledServers)
@@ -102,6 +96,26 @@ lsp.configure("tsserver", {
 lsp.configure("denols", {
 	root_dir = lspUtils.root_pattern("deno.json", "deno.jsonc"),
 	single_file_support = false,
+})
+
+-- ADDITIONAL CUSTOMIZATION
+lsp.set_sign_icons({
+	error = "E",
+	warn = "W",
+	hint = "H",
+	info = "I",
+})
+
+-- AUTOCOMPLETE
+cmp.setup({
+	sources = {
+		{ name = "nvim_lsp", keyword_length = 1 },
+		{ name = "path" },
+		{ name = "buffer", keyword_length = 3 },
+	},
+	mapping = {
+		["<CR>"] = cmp.mapping.confirm({ select = true }),
+	},
 })
 
 -- LSP SETUP
