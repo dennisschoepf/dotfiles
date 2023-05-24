@@ -72,8 +72,8 @@ which_key.register({
 		b = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle git line blame" },
 	},
 	o = {
-		name = "+open",
-		t = { "<cmd>Telescope file_browser path=%:p:h<cr>", "Open telescope file browser" },
+		name = "+org",
+		d = { "<cmd>Neorg journal today<cr>", "Open daily note" },
 	},
 	t = {
 		name = "+trouble (lsp-diagnostics)",
