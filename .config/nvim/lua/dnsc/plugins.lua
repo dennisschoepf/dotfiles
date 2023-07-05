@@ -60,11 +60,6 @@ local plugins = {
 	},
 	-- Trouble (LSP Diagnostics)
 	"folke/trouble.nvim",
-	-- Neorg
-	{
-		"nvim-neorg/neorg",
-		run = ":Neorg sync-parsers", -- This is the important bit!
-	},
 	-- Keybindings
 	"folke/which-key.nvim",
 }
