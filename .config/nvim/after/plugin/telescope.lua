@@ -1,3 +1,5 @@
+local lga_actions = require("telescope-live-grep-args.actions")
+
 require("telescope").setup({
 	file_sorter = "",
 	pickers = {
@@ -30,20 +32,18 @@ require("telescope").setup({
 		fzf = {
 			case_mode = "ignore_case",
 		},
-		file_browser = {
-			theme = "ivy",
-			hijack_netrw = true,
+		live_grep_args = {
+			auto_quoting = true, -- enable/disable auto-quoting
 			mappings = {
-				["i"] = {
-					-- your custom insert mode mappings
-				},
-				["n"] = {
-					-- your custom normal mode mappings
+				i = {
+					["<C-k>"] = lga_actions.quote_prompt(),
+					["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
 				},
 			},
+			theme = "ivy", -- use dropdown theme
 		},
 	},
 })
 
-require("telescope").load_extension("file_browser")
+require("telescope").load_extension("live_grep_args")
 require("telescope").load_extension("fzf")

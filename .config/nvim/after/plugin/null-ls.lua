@@ -69,7 +69,9 @@ local null_opts = lsp.build_options("null-ls", {
 null_ls.setup({
 	on_attach = null_opts.on_attach,
 	sources = {
-		null_ls.builtins.formatting.prettierd,
+		null_ls.builtins.formatting.prettierd.with({
+			disabled_filetypes = { "handlebars" },
+		}),
 		null_ls.builtins.code_actions.eslint_d,
 		null_ls.builtins.diagnostics.eslint_d.with({
 			runtime_condition = eslint_runtime_condition,

@@ -28,6 +28,5 @@ shift + alt - 4 : yabai -m window --space 4; yabai -m space --focus 4;
 shift + alt - 5 : yabai -m window --space 5; yabai -m space --focus 5;
 shift + alt - 6 : yabai -m window --space 6; yabai -m space --focus 6;
 
-ctrl + alt - q : brew services stop yabai
-ctrl + alt - s : brew services start yabai
-ctrl + alt - r : brew services restart yabai
+ctrl + shift - r : yabai --stop-service && yabai --start-service
+ctrl + shift - i : skhd --stop-service && skhd --start-service

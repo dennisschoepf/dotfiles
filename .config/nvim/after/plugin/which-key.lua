@@ -1,4 +1,5 @@
 local which_key = require("which-key")
+local live_grep_args_shortcuts = require("telescope-live-grep-args.shortcuts")
 
 which_key.setup({
 	window = {
@@ -23,7 +24,8 @@ which_key.register({
 	},
 	s = {
 		name = "+search",
-		s = { "<cmd>Telescope live_grep<cr>", "Find file in cwd" },
+		s = { ":lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>", "Find file in cwd" },
+		w = { "live_grep_args_shortcuts.grep_word_under_cursor", "Find file in cwd" },
 		b = { ":lua require'telescope.builtin'.buffers{}<cr>", "Find buffer" },
 		f = { ":lua require'telescope.builtin'.builtin.current_buffer_fuzzy_find{}<cr>", "Find in file" },
 	},
@@ -82,7 +84,7 @@ which_key.register({
 		q = { "<cmd>TroubleToggle quickfix<cr>", "Open trouble quickfix list" },
 		r = { "<cmd>TroubleToggle lsp_references<cr>", "Open lsp references in trouble UI" },
 	},
-	n = { "<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>", "Open file browser" },
+	n = { "<cmd>Oil --float<cr>", "Open file browser" },
 	e = { "<cmd>lua vim.lsp.buf.format()<cr>", "Show diagnostics in float window" },
 	q = { "<cmd>qa!<cr>", "Leave neovim" },
 }, { prefix = "<leader>", mode = "n" })

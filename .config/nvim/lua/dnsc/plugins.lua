@@ -15,10 +15,18 @@ local plugins = {
 		version = "0.1.1",
 		dependencies = {
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-			"nvim-telescope/telescope-file-browser.nvim",
+			{
+				"nvim-telescope/telescope-live-grep-args.nvim",
+				-- This will not install any breaking changes.
+				-- For major updates, this must be adjusted manually.
+				version = "^1.0.0",
+			},
 		},
 	},
 	-- File/Folder Management
+	{
+		"stevearc/oil.nvim",
+	},
 	-- Treesitter (and TS-based plugins)
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	"windwp/nvim-ts-autotag",
