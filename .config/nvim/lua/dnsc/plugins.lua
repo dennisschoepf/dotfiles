@@ -24,9 +24,8 @@ local plugins = {
 		},
 	},
 	-- File/Folder Management
-	{
-		"stevearc/oil.nvim",
-	},
+	"stevearc/oil.nvim",
+	"ThePrimeagen/harpoon",
 	-- Treesitter (and TS-based plugins)
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	"windwp/nvim-ts-autotag",
