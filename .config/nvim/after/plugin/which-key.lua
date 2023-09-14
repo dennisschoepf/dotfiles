@@ -91,18 +91,15 @@ which_key.register({
 		n = { ":lua require('harpoon.ui').nav_next()<cr>" },
 		p = { ":lua require('harpoon.ui').nav_prev()<cr>" },
 	},
-	o = {
+	n = {
 		name = "+neorg",
-		n = {
-			d = { ":Neorg journal today<cr>" },
-			y = { ":Neorg journal yesterday<cr>" },
-			t = { ":Neorg journal tomorrow<cr>" },
-		},
-		e = {
-			m = { ":Neorg export<cr>" },
-		},
+		d = { "<cmd>Neorg journal today<cr>", "Open today's note" },
+		v = { "<cmd>80vs<cr><bar><cmd>Neorg journal today<cr>", "Open today's note in a split" },
+		y = { "<cmd>Neorg journal yesterday<cr>", "Open yesterday's note" },
+		t = { "<cmd>Neorg journal tomorrow<cr>", "Open tomorrow's note" },
+		e = { "<cmd>Neorg export<cr>" },
 	},
-	n = { "<cmd>Oil --float<cr>", "Open file browser" },
-	e = { "<cmd>lua vim.lsp.buf.format()<cr>", "Show diagnostics in float window" },
+	e = { "<cmd>Oil --float<cr>", "Open file browser" },
+	d = { "<cmd>wq<cr>", "Close window and buffer" },
 	q = { "<cmd>qa!<cr>", "Leave neovim" },
 }, { prefix = "<leader>", mode = "n" })
