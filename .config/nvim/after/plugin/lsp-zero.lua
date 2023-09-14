@@ -43,7 +43,7 @@ local lsp = require("lsp-zero").preset({
 		set_basic_mappings = true,
 		set_extra_mappings = true,
 		set_sources = false,
-		use_luasnip = false,
+		use_luasnip = true,
 		set_format = true,
 		documentation_window = true,
 	},
