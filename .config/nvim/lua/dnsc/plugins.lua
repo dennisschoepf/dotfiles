@@ -69,6 +69,11 @@ local plugins = {
 	"folke/trouble.nvim",
 	-- Start Screen
 	{ "echasnovski/mini.starter", version = false },
+	-- Notes
+	{
+		"nvim-neorg/neorg",
+		build = ":Neorg sync-parsers", -- This is the important bit!
+	},
 	-- Keybindings
 	"folke/which-key.nvim",
 }

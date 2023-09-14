@@ -61,7 +61,7 @@ which_key.register({
 		h = { "<Cmd>BufferPrevious<CR>", "Go to previous buffer" },
 		l = { "<Cmd>BufferNext<CR>", "Go to next buffer" },
 	},
-	o = { "<cmd>Telescope buffers<cr>", "Opens buffers" },
+	p = { "<cmd>Telescope buffers<cr>", "Opens buffers" },
 	x = {
 		name = "+config",
 		r = { "<cmd>source $MYVIMRC<cr>", "Reload config" },
@@ -90,6 +90,17 @@ which_key.register({
 		["4"] = { ":lua require('harpoon.ui').nav_file(4)<cr>" },
 		n = { ":lua require('harpoon.ui').nav_next()<cr>" },
 		p = { ":lua require('harpoon.ui').nav_prev()<cr>" },
+	},
+	o = {
+		name = "+neorg",
+		n = {
+			d = { ":Neorg journal today<cr>" },
+			y = { ":Neorg journal yesterday<cr>" },
+			t = { ":Neorg journal tomorrow<cr>" },
+		},
+		e = {
+			m = { ":Neorg export<cr>" },
+		},
 	},
 	n = { "<cmd>Oil --float<cr>", "Open file browser" },
 	e = { "<cmd>lua vim.lsp.buf.format()<cr>", "Show diagnostics in float window" },
