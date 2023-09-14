@@ -67,8 +67,6 @@ local plugins = {
 	},
 	-- Trouble (LSP Diagnostics)
 	"folke/trouble.nvim",
-	-- Start Screen
-	{ "echasnovski/mini.starter", version = false },
 	-- Notes
 	{
 		"nvim-neorg/neorg",
