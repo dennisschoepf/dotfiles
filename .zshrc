@@ -33,6 +33,7 @@ export PATH="$PATH:$HOME/.local/usr/bin"
 export PATH=$PATH:/usr/local/go/bin
 export PATH=/usr/local/bin:$PATH
 export PATH=/opt/homebrew/bin:$PATH
+export PATH=$PATH:/Users/dennis/flutter/bin
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH=$PATH:/Users/dennis/.spicetify
