@@ -10,6 +10,7 @@ plugins=(
   ubuntu
   zsh-syntax-highlighting
   zsh-autosuggestions
+  zsh-completions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -33,6 +34,7 @@ export PATH="$PATH:$HOME/.local/usr/bin"
 export PATH=$PATH:/usr/local/go/bin
 export PATH=/usr/local/bin:$PATH
 export PATH=/opt/homebrew/bin:$PATH
+export PATH=/home/dennis/.cargo/bin:$PATH
 export PATH=$PATH:/Users/dennis/flutter/bin
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
@@ -65,7 +67,7 @@ alias ls="eza -F --git"
 alias copyc="xclip -sel c <"
 alias grml="git branch --merged | egrep -v \"(^\*|master|dev)\" | xargs git branch -d"
 alias v="nvim"
-alias tmuxrefresh="stty sane; printf '\033k%s\033\\\033]2;%s\007' "`basename "$SHELL"`" "`uname -n`"; tput reset; tmux refresh"
+# alias tmuxrefresh="stty sane; printf '\033k%s\033\\\033]2;%s\007' "`basename "$SHELL"`" "`uname -n`"; tput reset; tmux refresh"
 alias stgui="ssh -L 9090:localhost:8384 dnsc"
 
 # YADM aliases

@@ -4,7 +4,7 @@ local plugins = {
 	-- Appearance
 	"kyazdani42/nvim-web-devicons",
 	{ "catppuccin/nvim", name = "catppuccin" },
-	"lukas-reineke/indent-blankline.nvim",
+  	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 	-- Helpers
 	"romainl/vim-cool",
 	"echasnovski/mini.pairs",
