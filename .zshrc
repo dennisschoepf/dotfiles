@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export PATH=/opt/homebrew/bin:$PATH
 
 plugins=(
   git
@@ -8,6 +9,7 @@ plugins=(
   rsync
   cp
   ubuntu
+  tmux
   zsh-syntax-highlighting
   zsh-autosuggestions
   zsh-completions
@@ -18,22 +20,18 @@ source $ZSH/oh-my-zsh.sh
 # My configuration
 export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_US.UTF-8
+export ZSH_TMUX_AUTOSTART=true
 
 # Android Dev Setup
 export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 
-# Deno
-export DENO_INSTALL="/Users/dennis/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
-
 # PATH variables
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.local/usr/bin"
 export PATH=$PATH:/usr/local/go/bin
 export PATH=/usr/local/bin:$PATH
-export PATH=/opt/homebrew/bin:$PATH
 export PATH=/home/dennis/.cargo/bin:$PATH
 export PATH=$PATH:/Users/dennis/flutter/bin
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
@@ -68,7 +66,7 @@ alias ls="eza -F --git"
 alias copyc="xclip -sel c <"
 alias grml="git branch --merged | egrep -v \"(^\*|master|dev)\" | xargs git branch -d"
 alias v="nvim"
-# alias tmuxrefresh="stty sane; printf '\033k%s\033\\\033]2;%s\007' "`basename "$SHELL"`" "`uname -n`"; tput reset; tmux refresh"
+alias tmuxrefresh="stty sane; printf '\033k%s\033\\\033]2;%s\007' "`basename "$SHELL"`" "`uname -n`"; tput reset; tmux refresh"
 alias stgui="ssh -L 9090:localhost:8384 dnsc"
 
 # YADM aliases
@@ -125,4 +123,3 @@ echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-tmux new-session -A -s term
