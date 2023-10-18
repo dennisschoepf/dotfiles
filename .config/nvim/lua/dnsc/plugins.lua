@@ -4,7 +4,7 @@ local plugins = {
 	-- Appearance
 	"kyazdani42/nvim-web-devicons",
 	{ "catppuccin/nvim", name = "catppuccin" },
-  	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 	-- Helpers
 	"romainl/vim-cool",
 	"echasnovski/mini.pairs",
@@ -25,7 +25,6 @@ local plugins = {
 	},
 	-- File/Folder Management
 	"stevearc/oil.nvim",
-	"ThePrimeagen/harpoon",
 	-- Treesitter (and TS-based plugins)
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	"windwp/nvim-ts-autotag",
