@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+local hn = wezterm.hostname()
 local act = wezterm.action
 
 if wezterm.config_builder then
@@ -6,19 +7,30 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
+-- Helper
+local function get_padding(padding)
+	return {
+		left = padding,
+		right = padding,
+		top = padding,
+		bottom = padding - 7,
+	}
+end
+
 -- Appearance
 config.font = wezterm.font("JetBrainsMono Nerd Font")
 config.font_size = 14
 config.color_scheme = "catppuccin-mocha"
 config.enable_tab_bar = false
-config.window_background_opacity = 0.92
-config.window_decorations = "NONE"
-config.window_padding = {
-	left = 25,
-	right = 25,
-	top = 25,
-	bottom = 25,
-}
+config.window_background_opacity = 0.94
+config.window_decorations = "RESIZE"
+config.window_padding = get_padding(25)
+config.colors = { foreground = "white" }
+
+-- Overrides for Mac
+if hn == "contraption.digital-h.de" then
+	config.font_size = 19
+end
 
 -- Shortcuts
 config.keys = {
