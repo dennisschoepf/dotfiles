@@ -1,24 +1,23 @@
 local plugins = {
 	-- Utils
 	"nvim-lua/plenary.nvim",
+	"folke/which-key.nvim",
 	-- Appearance
 	"kyazdani42/nvim-web-devicons",
 	{ "catppuccin/nvim", name = "catppuccin" },
 	-- Helpers
 	"romainl/vim-cool",
 	"echasnovski/mini.pairs",
+	"echasnovski/mini.starter",
 	"echasnovski/mini.comment",
 	-- Telescope
 	{
 		"nvim-telescope/telescope.nvim",
 		version = "0.1.1",
 		dependencies = {
-			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 			{
-				"nvim-telescope/telescope-live-grep-args.nvim",
-				-- This will not install any breaking changes.
-				-- For major updates, this must be adjusted manually.
-				version = "^1.0.0",
+				"nvim-telescope/telescope-fzf-native.nvim",
+				build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
 			},
 		},
 	},
@@ -63,15 +62,11 @@ local plugins = {
 			"jay-babu/mason-null-ls.nvim",
 		},
 	},
-	-- Trouble (LSP Diagnostics)
-	"folke/trouble.nvim",
 	-- Notes
 	{
 		"nvim-neorg/neorg",
 		build = ":Neorg sync-parsers", -- This is the important bit!
 	},
-	-- Keybindings
-	"folke/which-key.nvim",
 }
 
 local opts = {}

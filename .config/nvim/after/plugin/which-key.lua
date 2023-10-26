@@ -1,5 +1,4 @@
 local which_key = require("which-key")
-local live_grep_args_shortcuts = require("telescope-live-grep-args.shortcuts")
 
 which_key.setup({
 	window = {
@@ -24,8 +23,7 @@ which_key.register({
 	},
 	s = {
 		name = "+search",
-		s = { ":lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>", "Find file in cwd" },
-		w = { "live_grep_args_shortcuts.grep_word_under_cursor", "Find file in cwd" },
+		s = { "<cmd>Telescope live_grep<cr>", "Find buffer" },
 		b = { ":lua require'telescope.builtin'.buffers{}<cr>", "Find buffer" },
 		f = { ":lua require'telescope.builtin'.builtin.current_buffer_fuzzy_find{}<cr>", "Find in file" },
 	},
