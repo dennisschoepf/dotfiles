@@ -22,11 +22,6 @@ export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_US.UTF-8
 export ZSH_TMUX_AUTOSTART=true
 
-# Android Dev Setup
-export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
-export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
-
 # PATH variables
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.local/usr/bin"
@@ -75,20 +70,28 @@ alias yc="yadm add -u && yadm commit -am"
 alias yp="yadm push"
 alias yf="yadm pull"
 
-# Work aliases
-alias npd="npm run dev"
-alias cdr="cd ~/Projects/ride"
-alias cdrl="cd ~/Projects/ride/apps/lib"
-alias cdrlb="cd ~/Projects/ride/apps/lib && npm run build"
-alias cdrf="cd ~/Projects/ride/apps/frontend"
-alias cdrq="cd ~/Projects/ride/apps/native/qickets"
-alias cdrqs="cd ~/Projects/ride/apps/backend/edge-services/qickets-service"
-alias cdrms="cd ~/Projects/ride/apps/backend/backend-services/main-service"
-alias cdrfs="cd ~/Projects/ride/apps/backend/backend-services/flex-subscription-service"
-alias cdrps="cd ~/Projects/ride/apps/backend/backend-services/pay-service"
-alias cdrts="cd ~/Projects/ride/apps/backend/backend-services/tariff-service"
-alias cdrmes="cd ~/Projects/ride/apps/backend/backend-services/media-service"
-alias cdras="cd ~/Projects/ride/apps/backend/edge-services/abo-service"
+# Work specific config
+if [[ $(hostname) == "contraption.digital-h.de" ]]; then
+  # Android Dev Setup
+  export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
+  export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+  export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+
+  # Work aliases
+  alias npd="npm run dev"
+  alias cdr="cd ~/Projects/ride"
+  alias cdrl="cd ~/Projects/ride/apps/lib"
+  alias cdrlb="cd ~/Projects/ride/apps/lib && npm run build"
+  alias cdrf="cd ~/Projects/ride/apps/frontend"
+  alias cdrq="cd ~/Projects/ride/apps/native/qickets"
+  alias cdrqs="cd ~/Projects/ride/apps/backend/edge-services/qickets-service"
+  alias cdrms="cd ~/Projects/ride/apps/backend/backend-services/main-service"
+  alias cdrfs="cd ~/Projects/ride/apps/backend/backend-services/flex-subscription-service"
+  alias cdrps="cd ~/Projects/ride/apps/backend/backend-services/pay-service"
+  alias cdrts="cd ~/Projects/ride/apps/backend/backend-services/tariff-service"
+  alias cdrmes="cd ~/Projects/ride/apps/backend/backend-services/media-service"
+  alias cdras="cd ~/Projects/ride/apps/backend/edge-services/abo-service"
+fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
