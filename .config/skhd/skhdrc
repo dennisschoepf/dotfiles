@@ -30,3 +30,5 @@ shift + alt - 6 : yabai -m window --space 6; yabai -m space --focus 6;
 
 ctrl + shift - r : yabai --stop-service && yabai --start-service
 ctrl + shift - i : skhd --stop-service && skhd --start-service
+
+cmd + ctrl - j : wezterm start nvim ~/notes
