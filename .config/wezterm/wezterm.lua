@@ -18,7 +18,7 @@ local function get_padding(padding)
 end
 
 -- Appearance
-config.font = wezterm.font("JetBrainsMono Nerd Font")
+config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Light" })
 config.font_size = 14
 config.color_scheme = "catppuccin-mocha"
 config.enable_tab_bar = false
@@ -29,6 +29,7 @@ config.colors = { foreground = "white" }
 
 -- Overrides for Mac
 if hn == "contraption.digital-h.de" then
+	config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Regular" })
 	config.font_size = 19
 end
 
