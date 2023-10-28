@@ -114,6 +114,16 @@ bindsym $mod+Ctrl+0 move container to workspace number $ws10
 bindsym $mod+Ctrl+r restart
 bindsym $mod+Ctrl+e i3-msg exit
 
+mode "exit: [l]ogout, [r]eboot, [s]hutdown" {
+  bindsym l exec i3-msg exit
+  bindsym r exec systemctl reboot
+  bindsym s exec systemctl shutdown
+  bindsym Escape mode "default"
+  bindsym Return mode "default"
+}
+
+bindsym $mod+x mode "exit: [l]ogout, [r]eboot, [s]hutdown"
+
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
