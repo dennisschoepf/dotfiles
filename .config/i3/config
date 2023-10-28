@@ -41,7 +41,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym $mod+q kill
 
 ### --- LAUNCHERS ---
-bindsym $mod+space exec --no-startup-id dmenu_run
+bindsym $mod+space exec rofi -show drun
 bindsym $meh+Return exec i3-sensible-terminal
 bindsym $meh+b exec firefox
 bindsym $meh+f exec nautilus
@@ -139,6 +139,19 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+
+# https://github.com/ValveSoftware/steam-for-linux/issues/1040
+for_window [class="^Steam$" title="^Friends$"] floating enable
+for_window [class="^Steam$" title="Steam - News"] floating enable
+for_window [class="^Steam$" title=".* - Chat"] floating enable
+for_window [class="^Steam$" title="^Settings$"] floating enable
+for_window [class="^Steam$" title=".* - event started"] floating enable
+for_window [class="^Steam$" title=".* CD key"] floating enable
+for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
+for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
+for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
+for_window [title="^Steam Keyboard$"] floating enable
 
 bar {
         status_command i3status
