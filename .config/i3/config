@@ -4,6 +4,11 @@ set $mod Mod4
 set $meh Mod1+Shift+Ctrl
 floating_modifier $mod
 
+smart_borders on
+smart_gaps on
+gaps outer 4
+gaps inner 12
+
 ### --- STARTUP ---
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
@@ -98,7 +103,7 @@ bindsym $mod+Ctrl+9 move container to workspace number $ws9
 bindsym $mod+Ctrl+0 move container to workspace number $ws10
 
 bindsym $mod+Ctrl+r restart
-bindsym $mod+Ctrl+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Ctrl+e i3-msg exit
 
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
