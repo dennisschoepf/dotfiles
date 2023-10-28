@@ -5,9 +5,18 @@ set $meh Mod1+Shift+Ctrl
 floating_modifier $mod
 
 smart_borders on
+default_border pixel 3
 smart_gaps on
 gaps outer 4
 gaps inner 12
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #f4dbd6 #285577 #ffffff #2e9ef4   #7dc4e4
+client.focused_inactive #f4dbd6 #5f676a #ffffff #484e50   #7dc4e4
+client.unfocused        #f4dbd6 #222222 #888888 #292d2e   #24273a
+client.urgent           #f4dbd6 #900000 #ffffff #900000   #24273a
+client.placeholder      #f4dbd6 #0c0c0c #ffffff #000000   #24273a
+client.background       #ffffff
 
 ### --- STARTUP ---
 exec --no-startup-id dex --autostart --environment i3
