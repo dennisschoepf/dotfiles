@@ -7,7 +7,7 @@ truncation_symbol = "…/"
 [sudo]
 style = "bold green"
 symbol = " "
-disabled = false
+disabled = true
 
 [character]
 success_symbol = "[λ](bold green) "
