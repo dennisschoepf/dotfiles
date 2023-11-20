@@ -63,6 +63,7 @@ alias grml="git branch --merged | egrep -v \"(^\*|master|dev)\" | xargs git bran
 alias v="nvim"
 alias tmuxrefresh="stty sane; printf '\033k%s\033\\\033]2;%s\007' "`basename "$SHELL"`" "`uname -n`"; tput reset; tmux refresh"
 alias stgui="ssh -L 9090:localhost:8384 dnsc"
+alias cat="bat"
 
 # YADM aliases
 alias ys="yadm status"
