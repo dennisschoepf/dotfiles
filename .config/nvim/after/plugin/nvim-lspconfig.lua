@@ -43,6 +43,7 @@ local servers = {
   -- TSServer not included here -> Configuration with typescript-tools below
   html = {},
   jsonls = {},
+  eslint = {},
   lua_ls = {
     Lua = {
       runtime = { version = "LuaJIT", path = vim.split(package.path, ";") },
