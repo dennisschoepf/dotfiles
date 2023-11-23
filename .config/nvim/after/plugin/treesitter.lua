@@ -1,5 +1,5 @@
 require("nvim-treesitter.configs").setup({
-	ensure_installed = "all",
+	    ensure_installed = { 'go', 'lua', 'python', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash', 'json', 'html', 'css' },
 	auto_install = true,
 	ignore_install = {},
 	modules = {},
