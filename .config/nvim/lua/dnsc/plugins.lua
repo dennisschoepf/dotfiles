@@ -24,7 +24,6 @@ local plugins = {
 	"stevearc/oil.nvim",
 	-- Treesitter (and TS-based plugins)
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-	"windwp/nvim-ts-autotag",
 	-- Git
 	"kdheepak/lazygit.nvim",
 	"lewis6991/gitsigns.nvim",
@@ -60,11 +59,6 @@ local plugins = {
 			"williamboman/mason.nvim",
 			"jay-babu/mason-null-ls.nvim",
 		},
-	},
-	-- Notes
-	{
-		"nvim-neorg/neorg",
-		build = ":Neorg sync-parsers", -- This is the important bit!
 	},
 }
 
