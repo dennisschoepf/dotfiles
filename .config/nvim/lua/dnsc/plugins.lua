@@ -10,6 +10,7 @@ local plugins = {
 	"echasnovski/mini.pairs",
 	"echasnovski/mini.starter",
 	"echasnovski/mini.comment",
+	"tpope/vim-sleuth",
 	-- Telescope
 	{
 		"nvim-telescope/telescope.nvim",
@@ -33,31 +34,22 @@ local plugins = {
 	"nvim-lualine/lualine.nvim",
 	-- LSP
 	{
-		"VonHeikemen/lsp-zero.nvim",
-		branch = "v2.x",
-		dependencies = {
-			-- LSP Support
-			{ "neovim/nvim-lspconfig" }, -- Required
-			{ -- Optional
-				"williamboman/mason.nvim",
-				build = function()
-					pcall(vim.cmd, "MasonUpdate")
-				end,
-			},
-			{ "williamboman/mason-lspconfig.nvim" }, -- Optional
-			-- Autocompletion
-			{ "hrsh7th/nvim-cmp" }, -- Required
-			{ "hrsh7th/cmp-nvim-lsp" }, -- Required
-			{ "hrsh7th/cmp-nvim-lua" },
-			{ "L3MON4D3/LuaSnip" }, -- Required
-		},
-	},
-	-- NULL-LS
-	{
-		"jose-elias-alvarez/null-ls.nvim",
+		"neovim/nvim-lspconfig",
 		dependencies = {
 			"williamboman/mason.nvim",
-			"jay-babu/mason-null-ls.nvim",
+			"williamboman/mason-lspconfig.nvim",
+			"folke/neodev.nvim",
+			"pmizio/typescript-tools.nvim",
+		},
+	},
+	-- Autocompletion
+	{
+		"hrsh7th/nvim-cmp",
+		dependencies = {
+			"L3MON4D3/LuaSnip",
+			"saadparwaiz1/cmp_luasnip",
+			"hrsh7th/cmp-nvim-lsp",
+			"rafamadriz/friendly-snippets",
 		},
 	},
 }
