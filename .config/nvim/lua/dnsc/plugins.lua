@@ -52,6 +52,8 @@ local plugins = {
 			"rafamadriz/friendly-snippets",
 		},
 	},
+	-- Formatting
+	"stevearc/conform.nvim",
 }
 
 local opts = {}
