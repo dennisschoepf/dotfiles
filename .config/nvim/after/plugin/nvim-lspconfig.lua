@@ -46,7 +46,6 @@ local servers = {
 	jsonls = {},
 	lua_ls = {
 		Lua = {
-			runtime = { version = "LuaJIT", path = vim.split(package.path, ";") },
 			workspace = { checkThirdParty = false, library = vim.api.nvim_get_runtime_file("", true) },
 			telemetry = { enable = false },
 			diagnostics = { globals = "vim" },
