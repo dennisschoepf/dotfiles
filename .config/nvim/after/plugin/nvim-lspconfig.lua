@@ -14,6 +14,7 @@ local on_attach = function(_, bufnr)
 	nmap("gd", vim.lsp.buf.definition(), "[G]oto [D]efinition")
 	nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
 	nmap("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+	nmap("gl", vim.lsp.buf.hover, "Hover")
 	nmap("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
 	nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
 	nmap("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
@@ -41,7 +42,6 @@ require("mason-lspconfig").setup()
 
 local servers = {
 	-- TSServer not included here -> Configuration with typescript-tools below
-	eslint = {},
 	html = {},
 	jsonls = {},
 	lua_ls = {
@@ -51,6 +51,7 @@ local servers = {
 			diagnostics = { globals = "vim" },
 		},
 	},
+	efm = {},
 }
 
 require("neodev").setup()
@@ -105,4 +106,63 @@ require("typescript-tools").setup({
 			filetypes = { "javascriptreact", "typescriptreact" },
 		},
 	},
+})
+
+-- EFM Setup
+local eslint = require("efmls-configs.linters.eslint_d")
+local prettier = require("efmls-configs.formatters.prettier_d")
+local stylua = require("efmls-configs.formatters.stylua")
+local luacheck = require("efmls-configs.linters.luacheck")
+local ansible_lint = require("efmls-configs.linters.ansible_lint")
+local shellcheck = require("efmls-configs.linters.shellcheck")
+local shfmt = require("efmls-configs.formatters.shfmt")
+local golangci_lint = require("efmls-configs.linters.golangci_lint")
+local gofumpt = require("efmls-configs.formatters.gofumpt")
+
+local languages = {
+	bash = { shellcheck, shfmt },
+	css = { prettier },
+	go = { golangci_lint, gofumpt },
+	javascript = { eslint, prettier },
+	javascriptreact = { eslint, prettier },
+	json = { prettier },
+	lua = { stylua, luacheck },
+	typescript = { eslint, prettier },
+	typescriptreact = { eslint, prettier },
+	sh = { shellcheck, shfmt },
+	yaml = { ansible_lint, prettier },
+}
+
+local efmls_config = {
+	filetypes = vim.tbl_keys(languages),
+	settings = {
+		rootMarkers = { "package.json", ".git/" },
+		languages = languages,
+	},
+	init_options = {
+		documentFormatting = true,
+		documentRangeFormatting = true,
+		codeAction = true
+	},
+}
+
+require("lspconfig").efm.setup(vim.tbl_extend("force", efmls_config, {
+	on_attach = on_attach,
+	capabilities = capabilities,
+}))
+
+-- Auto Format with EFM on save (if a linter/formatter is registered)
+local lsp_fmt_group = vim.api.nvim_create_augroup("LspFormattingGroup", {})
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+	group = lsp_fmt_group,
+	callback = function(ev)
+		local efm = vim.lsp.get_active_clients({ name = "efm", bufnr = ev.buf })
+
+		if vim.tbl_isempty(efm) then
+			return
+		end
+
+		vim.lsp.buf.format({ name = "efm" })
+	end,
 })

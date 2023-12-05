@@ -52,8 +52,8 @@ local plugins = {
 			"rafamadriz/friendly-snippets",
 		},
 	},
-	-- Formatting
-	"stevearc/conform.nvim",
+	-- Formatting & Linting (EFM Langserver)
+	"creativenull/efmls-configs-nvim"
 }
 
 local opts = {}
