@@ -776,14 +776,16 @@ $env.PROMPT_INDICATOR_VI_NORMAL = "  "
 $env.PROMPT_MULTILINE_INDICATOR = " ::: "
 
 # Aliases
+alias v = nvim
 alias lg = lazygit
+alias lzd = lazydocker
 alias g = git
 alias ll = ls -l
 alias la = ls -a
 alias lla = ls -la
 alias cat = bat
 alias ys = yadm status
-alias yc = yadm add -u && yadm commit -m
+alias yc = "yadm add -u && yadm commit -am"
 alias yp = yadm push
 alias yf = yadm pull
 
