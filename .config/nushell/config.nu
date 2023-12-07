@@ -757,6 +757,18 @@ $env.config = {
     ]
 }
 
+# Helpers
+def --env ensure-path [new_path: string] {
+  let full_path = ($new_path | path expand)
+  let updated_env_path = (
+    if $new_path in $env.PATH { $env.PATH }
+    else {
+      $env.PATH | prepend $full_path
+    }
+  )
+  $env.PATH = $updated_env_path
+}
+
 # Various Prompt Options
 $env.PROMPT_INDICATOR = "  "
 $env.PROMPT_INDICATOR_VI_INSERT = "  "
@@ -769,3 +781,13 @@ alias g = git
 alias ll = ls -l
 alias la = ls -a
 alias lla = ls -la
+
+# ASDF
+$env.ASDF_NU_DIR = ($env.HOME | path join '.asdf')
+ source /home/dennis/.asdf/asdf.nu
+
+# Path
+(ensure-path "~/.local/bin")
+(ensure-path "~/bin")
+(ensure-path "~/.asdf")
+
