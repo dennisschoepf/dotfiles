@@ -781,6 +781,11 @@ alias g = git
 alias ll = ls -l
 alias la = ls -a
 alias lla = ls -la
+alias cat = bat
+alias ys = yadm status
+alias yc = yadm add -u && yadm commit -m
+alias yp = yadm push
+alias yf = yadm pull
 
 # ASDF
 $env.ASDF_NU_DIR = ($env.HOME | path join '.asdf')
@@ -790,4 +795,7 @@ $env.ASDF_NU_DIR = ($env.HOME | path join '.asdf')
 (ensure-path "~/.local/bin")
 (ensure-path "~/bin")
 (ensure-path "~/.asdf")
+(ensure-path "~/.cargo/bin")
+(ensure-path "~/.cargo/env")
+(ensure-path "~/go/bin")
 
