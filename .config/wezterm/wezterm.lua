@@ -18,7 +18,6 @@ local function get_padding(padding)
 end
 
 -- General Options
-config.default_prog = { '/usr/bin/nu' }
 
 -- Appearance
 config.font = wezterm.font('JetBrainsMono Nerd Font')
@@ -33,7 +32,7 @@ config.colors = { foreground = "white" }
 -- Shortcuts
 config.keys = {
   { key = "v", mods = "CMD", action = act.PasteFrom("Clipboard") },
-  { key = "c", mods = "CMD", action = act.CopyTo("ClipboardAndPrimarySelection" }
+  { key = "c", mods = "CMD", action = act.CopyTo("ClipboardAndPrimarySelection") }
 }
 
 return config
