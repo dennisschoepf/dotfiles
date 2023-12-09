@@ -1,50 +1,25 @@
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-export PATH=/opt/homebrew/bin:$PATH
-
-plugins=(
-  git
-  git-auto-fetch
-  jsontools
-  rsync
-  cp
-  ubuntu
-  tmux
-  zsh-syntax-highlighting
-  zsh-autosuggestions
-  zsh-completions
-)
-
-source $ZSH/oh-my-zsh.sh
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 # My configuration
-export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_US.UTF-8
-export ZSH_TMUX_AUTOSTART=true
+export EDITOR='nvim'
 
 # PATH variables
-export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/.local/usr/bin"
-export PATH=$PATH:/usr/local/go/bin
+export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/usr/bin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
+export PATH=$HOME/go/bin:$PATH
+export PATH=/usr/local/go/bin:$PATH
 export PATH=/usr/local/bin:$PATH
-export PATH=/home/dennis/.cargo/bin:$PATH
-export PATH=$PATH:/Users/dennis/flutter/bin
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-export PATH=$PATH:/Users/dennis/.spicetify
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='nvim'
-else
-  export EDITOR='nvim'
-fi
 
 # General aliases
 alias zshc="nvim ~/.zshrc"
 alias zshr="source ~/.zshrc"
-alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias nvimc="cd ~/.config/nvim && nvim"
 alias lg="lazygit"
 alias lzd="lazydocker"
@@ -73,6 +48,9 @@ alias yf="yadm pull"
 
 # Work specific config
 if [[ $(hostname) == "contraption.digital-h.de" ]]; then
+  # Add homebrew to path
+  export PATH=/opt/homebrew/bin:$PATH
+
   # Android Dev Setup
   export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
   export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
@@ -94,40 +72,12 @@ if [[ $(hostname) == "contraption.digital-h.de" ]]; then
   alias cdras="cd ~/Projects/ride/apps/backend/edge-services/abo-service"
 fi
 
+## NVM Setup
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Set up starship prompt
-eval "$(starship init zsh)"
-
-# Enable vi mode
-bindkey -v
-export KEYTIMEOUT=1
-
-# Change cursor shape for different vi modes.
-function zle-keymap-select {
-  if [[ ${KEYMAP} == vicmd ]] ||
-     [[ $1 = 'block' ]]; then
-    echo -ne '\e[1 q'
-  elif [[ ${KEYMAP} == main ]] ||
-       [[ ${KEYMAP} == viins ]] ||
-       [[ ${KEYMAP} = '' ]] ||
-       [[ $1 = 'beam' ]]; then
-    echo -ne '\e[5 q'
-  fi
-}
-zle -N zle-keymap-select
-zle-line-init() {
-    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-    echo -ne "\e[5 q"
-}
-zle -N zle-line-init
-echo -ne '\e[5 q' # Use beam shape cursor on startup.
-preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
+# Tmux Autostart
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   if [[ $(hostname) == "contraption.digital-h.de" ]]; then
     exec tmux new-session -A -s dev
@@ -135,3 +85,38 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] &&
     exec tmux new-session -A -s main
   fi
 fi
+
+### --- ZINIT ---
+### Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
+fi
+
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+# --- PACKAGES ---
+zinit ice depth"1"
+zinit light romkatv/powerlevel10k
+zinit light redxtech/zsh-asdf-direnv
+zinit light jeffreytse/zsh-vi-mode
+zinit light zsh-users/zsh-autosuggestions
+zinit light zdharma-continuum/fast-syntax-highlighting
+zinit light zdharma-continuum/history-search-multi-word
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+### End of Zinit's installer chunk
