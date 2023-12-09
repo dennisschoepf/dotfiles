@@ -34,7 +34,7 @@ config.colors = { foreground = "white" }
 if hn == "contraption.digital-h.de" then
   config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Regular" })
   config.font_size = 17.5
-  config.window_padding = { left = 30, top = 0, right = 30, bottom = 0 }
+  config.window_padding = get_padding(30)
 end
 
 -- Keybindings
