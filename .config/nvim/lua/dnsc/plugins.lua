@@ -45,6 +45,7 @@ local plugins = {
       "hrsh7th/nvim-cmp",
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
+      { url = "https://gitlab.com/schrieveslaach/sonarlint.nvim" },
     },
   },
   -- Linting & Formatting
@@ -54,10 +55,10 @@ local plugins = {
     dependencies = {
       "williamboman/mason.nvim",
       "nvimtools/none-ls.nvim",
+      "neovim/nvim-lspconfig",
     },
   },
   -- Sonarlint (TODO: Only @work)
-  { url = "https://gitlab.com/schrieveslaach/sonarlint.nvim" },
 }
 
 local opts = {}
