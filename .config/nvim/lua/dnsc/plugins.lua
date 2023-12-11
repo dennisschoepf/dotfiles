@@ -44,12 +44,11 @@ local plugins = {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/nvim-cmp",
 			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim"
-		}
+			"williamboman/mason-lspconfig.nvim",
+		},
 	},
 }
 
 local opts = {}
 
 require("lazy").setup(plugins, opts)
-

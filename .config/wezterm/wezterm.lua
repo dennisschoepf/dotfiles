@@ -14,7 +14,7 @@ local function get_padding(padding)
     left = padding,
     right = padding,
     top = padding,
-    bottom = padding - 7,
+    bottom = padding - 10,
   }
 end
 
