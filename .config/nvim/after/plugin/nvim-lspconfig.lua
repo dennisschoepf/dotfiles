@@ -71,6 +71,23 @@ lspconfig.tailwindcss.setup({
   capabilities = capabilities,
 })
 
+-- Sonarlint
+require("sonarlint").setup({
+  server = {
+    cmd = {
+      "sonarlint-language-server",
+      -- Ensure that sonarlint-language-server uses stdio channel
+      "-stdio",
+      "-analyzers",
+      -- paths to the analyzers you need, using those for python and java in this example
+      vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarpython.jar"),
+      vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarcfamily.jar"),
+      vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarjava.jar"),
+    },
+  },
+  filetypes = { "typescript" },
+})
+
 -- LSP Keybindings
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
