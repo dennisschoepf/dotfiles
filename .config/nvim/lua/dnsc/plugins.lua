@@ -56,8 +56,8 @@ local plugins = {
       "nvimtools/none-ls.nvim",
     },
   },
-  -- Sonarlint (Make work only)
-  "schrieveslaach/sonarlint.nvim",
+  -- Sonarlint (TODO: Only @work)
+  { url = "https://gitlab.com/schrieveslaach/sonarlint.nvim" },
 }
 
 local opts = {}
