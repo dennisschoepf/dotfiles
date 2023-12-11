@@ -45,6 +45,8 @@ local plugins = {
       "hrsh7th/nvim-cmp",
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
+      "b0o/schemastore.nvim",
+      -- Sonarlint (TODO: Only @work)
       { url = "https://gitlab.com/schrieveslaach/sonarlint.nvim" },
     },
   },
@@ -58,7 +60,6 @@ local plugins = {
       "neovim/nvim-lspconfig",
     },
   },
-  -- Sonarlint (TODO: Only @work)
 }
 
 local opts = {}

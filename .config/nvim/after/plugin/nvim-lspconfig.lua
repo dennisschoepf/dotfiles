@@ -54,6 +54,12 @@ lspconfig.tsserver.setup({
 -- JSON
 lspconfig.jsonls.setup({
   capabilities = capabilities,
+  settings = {
+    json = {
+      schemas = require("schemastore").json.schemas(),
+      validate = { enable = true },
+    },
+  },
 })
 
 -- HTML
