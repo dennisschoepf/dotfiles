@@ -10,6 +10,7 @@ local servers = {
   "html",
   "cssls",
   "tailwindcss",
+  "gopls",
 }
 
 require("mason").setup()
@@ -74,6 +75,11 @@ lspconfig.cssls.setup({
 
 -- Tailwind
 lspconfig.tailwindcss.setup({
+  capabilities = capabilities,
+})
+
+-- Go
+lspconfig.gopls.setup({
   capabilities = capabilities,
 })
 
