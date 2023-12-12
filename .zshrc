@@ -46,45 +46,6 @@ alias yc="yadm add -u && yadm commit -am"
 alias yp="yadm push"
 alias yf="yadm pull"
 
-# Work specific config
-if [[ $(hostname) == "contraption.digital-h.de" ]]; then
-  # Add homebrew to path
-  export PATH=/opt/homebrew/bin:$PATH
-
-  # Android Dev Setup
-  export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
-  export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
-  export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
-
-  # Work aliases
-  alias npd="npm run dev"
-  alias cdr="cd ~/Projects/ride"
-  alias cdrl="cd ~/Projects/ride/apps/lib"
-  alias cdrlb="cd ~/Projects/ride/apps/lib && npm run build"
-  alias cdrf="cd ~/Projects/ride/apps/frontend"
-  alias cdrq="cd ~/Projects/ride/apps/native/qickets"
-  alias cdrqs="cd ~/Projects/ride/apps/backend/edge-services/qickets-service"
-  alias cdrms="cd ~/Projects/ride/apps/backend/backend-services/main-service"
-  alias cdrfs="cd ~/Projects/ride/apps/backend/backend-services/flex-subscription-service"
-  alias cdrps="cd ~/Projects/ride/apps/backend/backend-services/pay-service"
-  alias cdrts="cd ~/Projects/ride/apps/backend/backend-services/tariff-service"
-  alias cdrmes="cd ~/Projects/ride/apps/backend/backend-services/media-service"
-  alias cdras="cd ~/Projects/ride/apps/backend/edge-services/abo-service"
-
-  # Zeit aliases
-  alias z='zeit'
-  alias zf='zeit finish'
-  alias zp='zeit track -p '
-  alias zpr='zeit track -p \"RIDE\"'
-  alias zpg='zeit track -p \"General\"'
-  alias zps='zeit track -p \"Setup\"'
-  alias zl='zeit list'
-  alias zs='zeit stats'
-  alias zt='zeit tracking'
-  alias ze="zeit entry \`zeit --no-colors list | tail -1 | awk '{print \$1}'\`"
-  alias zrm="zeit erase \`zeit --no-colors list | tail -1 | awk '{print \$1}'\`"
-fi
-
 ## NVM Setup
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -133,3 +94,45 @@ zinit light zdharma-continuum/history-search-multi-word
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 ### End of Zinit's installer chunk
+
+# Work specific config
+if [[ $(hostname) == "contraption.digital-h.de" ]]; then
+  # Add homebrew to path
+  export PATH=/opt/homebrew/bin:$PATH
+
+  # Android Dev Setup
+  export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
+  export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+  export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+
+  # Work aliases
+  alias npd="npm run dev"
+  alias cdr="cd ~/Projects/ride"
+  alias cdrl="cd ~/Projects/ride/apps/lib"
+  alias cdrlb="cd ~/Projects/ride/apps/lib && npm run build"
+  alias cdrf="cd ~/Projects/ride/apps/frontend"
+  alias cdrq="cd ~/Projects/ride/apps/native/qickets"
+  alias cdrqs="cd ~/Projects/ride/apps/backend/edge-services/qickets-service"
+  alias cdrms="cd ~/Projects/ride/apps/backend/backend-services/main-service"
+  alias cdrfs="cd ~/Projects/ride/apps/backend/backend-services/flex-subscription-service"
+  alias cdrps="cd ~/Projects/ride/apps/backend/backend-services/pay-service"
+  alias cdrts="cd ~/Projects/ride/apps/backend/backend-services/tariff-service"
+  alias cdrmes="cd ~/Projects/ride/apps/backend/backend-services/media-service"
+  alias cdras="cd ~/Projects/ride/apps/backend/edge-services/abo-service"
+
+  # Zeit aliases
+  alias z='zeit'
+  alias zf='zeit finish'
+  alias zp='zeit track -p '
+  alias zpr='zeit track -p \"RIDE\"'
+  alias zpg='zeit track -p \"General\"'
+  alias zps='zeit track -p \"Setup\"'
+  alias zl='zeit list'
+  alias zs='zeit stats'
+  alias zt='zeit tracking'
+  alias ze="zeit entry \`zeit --no-colors list | tail -1 | awk '{print \$1}'\`"
+  alias zrm="zeit erase \`zeit --no-colors list | tail -1 | awk '{print \$1}'\`"
+
+  # SDKMan (Java)
+  [[ -s "/Users/dennis/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/dennis/.sdkman/bin/sdkman-init.sh"
+fi
