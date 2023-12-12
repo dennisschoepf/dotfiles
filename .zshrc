@@ -70,6 +70,19 @@ if [[ $(hostname) == "contraption.digital-h.de" ]]; then
   alias cdrts="cd ~/Projects/ride/apps/backend/backend-services/tariff-service"
   alias cdrmes="cd ~/Projects/ride/apps/backend/backend-services/media-service"
   alias cdras="cd ~/Projects/ride/apps/backend/edge-services/abo-service"
+
+  # Zeit aliases
+  alias z='zeit'
+  alias zf='zeit finish'
+  alias zp='zeit track -p '
+  alias zpr='zeit track -p \"RIDE\"'
+  alias zpg='zeit track -p \"General\"'
+  alias zps='zeit track -p \"Setup\"'
+  alias zl='zeit list'
+  alias zs='zeit status'
+  alias zt='zeit tracking'
+  alias ze="zeit entry \`zeit --no-colors list | tail -1 | awk '{print \$1}'\`"
+  alias zrm="zeit erase \`zeit --no-colors list | tail -1 | awk '{print \$1}'\`"
 fi
 
 ## NVM Setup
