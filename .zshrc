@@ -79,7 +79,7 @@ if [[ $(hostname) == "contraption.digital-h.de" ]]; then
   alias zpg='zeit track -p \"General\"'
   alias zps='zeit track -p \"Setup\"'
   alias zl='zeit list'
-  alias zs='zeit status'
+  alias zs='zeit stats'
   alias zt='zeit tracking'
   alias ze="zeit entry \`zeit --no-colors list | tail -1 | awk '{print \$1}'\`"
   alias zrm="zeit erase \`zeit --no-colors list | tail -1 | awk '{print \$1}'\`"
