@@ -17,6 +17,8 @@ export PATH=$HOME/go/bin:$PATH
 export PATH=/usr/local/go/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 
+export GOPATH=$HOME/go
+
 # General aliases
 alias zshc="nvim ~/.zshrc"
 alias zshr="source ~/.zshrc"
