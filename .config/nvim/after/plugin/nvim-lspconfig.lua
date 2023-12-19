@@ -83,29 +83,6 @@ lspconfig.gopls.setup({
   capabilities = capabilities,
 })
 
--- Sonarlint
-require("sonarlint").setup({
-  server = {
-    cmd = {
-      "java",
-      "-jar",
-      vim.fn.expand("~/.sonarlint/sonarlint-ls.jar"),
-      -- Ensure that sonarlint-language-server uses stdio channel
-      "-stdio",
-      "-analyzers",
-      vim.fn.expand("~/.sonarlint/sonarjs.jar"),
-      vim.fn.expand("~/.sonarlint/sonarhtml.jar"),
-    },
-  },
-  filetypes = {
-    "javascript",
-    "typescript",
-    "typescriptreact",
-    "javascriptreact",
-    "html",
-  },
-})
-
 -- LSP Keybindings
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions

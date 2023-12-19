@@ -46,8 +46,6 @@ local plugins = {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
       "b0o/schemastore.nvim",
-      -- Sonarlint (TODO: Only @work)
-      { url = "https://gitlab.com/schrieveslaach/sonarlint.nvim" },
     },
   },
   -- Linting & Formatting

@@ -46,18 +46,53 @@ alias yc="yadm add -u && yadm commit -am"
 alias yp="yadm push"
 alias yf="yadm pull"
 
-## NVM Setup
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Work specific config
+if [[ $(hostname) == "contraption.digital-h.de" ]]; then
+  # Add homebrew to path
+  export PATH=/opt/homebrew/bin:$PATH
 
-# Tmux Autostart
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  if [[ $(hostname) == "contraption.digital-h.de" ]]; then
-    exec tmux new-session -A -s dev
-  else
-    exec tmux new-session -A -s main
-  fi
+  # Android Dev Setup
+  export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
+  export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+  export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+
+  # Work aliases
+  alias npd="npm run dev"
+  alias cdr="cd ~/Projects/ride"
+  alias cdrl="cd ~/Projects/ride/apps/lib"
+  alias cdrlb="cd ~/Projects/ride/apps/lib && npm run build"
+  alias cdrf="cd ~/Projects/ride/apps/frontend"
+  alias cdrq="cd ~/Projects/ride/apps/native/qickets"
+  alias cdrqs="cd ~/Projects/ride/apps/backend/edge-services/qickets-service"
+  alias cdrms="cd ~/Projects/ride/apps/backend/backend-services/main-service"
+  alias cdrfs="cd ~/Projects/ride/apps/backend/backend-services/flex-subscription-service"
+  alias cdrps="cd ~/Projects/ride/apps/backend/backend-services/pay-service"
+  alias cdrts="cd ~/Projects/ride/apps/backend/backend-services/tariff-service"
+  alias cdrmes="cd ~/Projects/ride/apps/backend/backend-services/media-service"
+  alias cdras="cd ~/Projects/ride/apps/backend/edge-services/abo-service"
+
+  # Zeit aliases
+  alias z='zeit'
+  alias zf='zeit finish'
+  alias zp='zeit track -p '
+  alias zpr='zeit track -p RIDE'
+  alias zpm='zeit track -p Meetings'
+  alias zps='zeit track -p Setup'
+  alias zpp='zeit track -p PM'
+  alias zpi='zeit track -p Internal'
+  alias zl='zeit list'
+  alias zs='zeit stats'
+  alias zt='zeit tracking'
+  alias ze="zeit entry \`zeit --no-colors list | tail -1 | awk '{print \$1}'\`"
+  alias zrm="zeit erase \`zeit --no-colors list | tail -1 | awk '{print \$1}'\`"
+
+  ## NVM Setup
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+  # SDKMan (Java)
+  [[ -s "/Users/dennis/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/dennis/.sdkman/bin/sdkman-init.sh"
 fi
 
 ### --- ZINIT ---
@@ -95,45 +130,12 @@ zinit light zdharma-continuum/history-search-multi-word
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 ### End of Zinit's installer chunk
 
-# Work specific config
-if [[ $(hostname) == "contraption.digital-h.de" ]]; then
-  # Add homebrew to path
-  export PATH=/opt/homebrew/bin:$PATH
-
-  # Android Dev Setup
-  export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
-  export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
-  export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
-
-  # Work aliases
-  alias npd="npm run dev"
-  alias cdr="cd ~/Projects/ride"
-  alias cdrl="cd ~/Projects/ride/apps/lib"
-  alias cdrlb="cd ~/Projects/ride/apps/lib && npm run build"
-  alias cdrf="cd ~/Projects/ride/apps/frontend"
-  alias cdrq="cd ~/Projects/ride/apps/native/qickets"
-  alias cdrqs="cd ~/Projects/ride/apps/backend/edge-services/qickets-service"
-  alias cdrms="cd ~/Projects/ride/apps/backend/backend-services/main-service"
-  alias cdrfs="cd ~/Projects/ride/apps/backend/backend-services/flex-subscription-service"
-  alias cdrps="cd ~/Projects/ride/apps/backend/backend-services/pay-service"
-  alias cdrts="cd ~/Projects/ride/apps/backend/backend-services/tariff-service"
-  alias cdrmes="cd ~/Projects/ride/apps/backend/backend-services/media-service"
-  alias cdras="cd ~/Projects/ride/apps/backend/edge-services/abo-service"
-
-  # Zeit aliases
-  alias z='zeit'
-  alias zf='zeit finish'
-  alias zp='zeit track -p '
-  alias zpr='zeit track -p RIDE'
-  alias zpm='zeit track -p Meetings'
-  alias zps='zeit track -p Setup'
-  alias zpp='zeit track -p PM'
-  alias zl='zeit list'
-  alias zs='zeit stats'
-  alias zt='zeit tracking'
-  alias ze="zeit entry \`zeit --no-colors list | tail -1 | awk '{print \$1}'\`"
-  alias zrm="zeit erase \`zeit --no-colors list | tail -1 | awk '{print \$1}'\`"
-
-  # SDKMan (Java)
-  [[ -s "/Users/dennis/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/dennis/.sdkman/bin/sdkman-init.sh"
+# Tmux Autostart
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  if [[ $(hostname) == "contraption.digital-h.de" ]]; then
+    exec tmux new-session -A -s dev
+  else
+    exec tmux new-session -A -s main
+  fi
 fi
+
