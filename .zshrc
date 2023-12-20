@@ -73,6 +73,9 @@ if [[ $(hostname) == "contraption.digital-h.de" ]]; then
   alias cdrmes="cd ~/Projects/ride/apps/backend/backend-services/media-service"
   alias cdras="cd ~/Projects/ride/apps/backend/edge-services/abo-service"
 
+  # Zeit DB
+  export ZEIT_DB="$HOME/.config/zeit.db"
+
   # Zeit aliases
   alias z='zeit'
   alias zf='zeit finish'
