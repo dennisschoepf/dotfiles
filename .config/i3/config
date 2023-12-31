@@ -2,8 +2,9 @@
 set $mod                             Mod4
 set $smod                            Shift
 set $wm_setting_font                 pango:JetBrainsMono Nerd Font, Semibold 11
-set $wm_setting_gap_width            15
-set $wm_setting_gap_heigth           15
+set $wm_setting_gap_width            4
+set $wm_setting_gap_heigth           4
+set $wm_setting_gap_inner            10
 set $wm_setting_border_size          2
 set $wm_setting_key_left             Left
 set $wm_setting_key_down             Down
@@ -20,9 +21,9 @@ set $wm_setting_background_path      $HOME/.local/share/backgrounds/shaded_lands
 
 set $wm_color_border_active_bg       #91d7e3
 set $wm_color_border_active_fg       #91d7e3 
-set $wm_color_border_inactive_bg     #91d7e3 
-set $wm_color_border_inactive_fg     #91d7e3 
-set $wm_color_background             #b8c0e0
+set $wm_color_border_inactive_bg     #5b6078 
+set $wm_color_border_inactive_fg     #5b6078
+set $wm_color_background             #5b6078  
 
 ### Applications ###
 # Start a terminal emulator
@@ -124,6 +125,7 @@ bindsym $mod+r mode "resize"
 ### Gaps ###
 gaps horizontal $wm_setting_gap_width
 gaps vertical   $wm_setting_gap_heigth
+gaps inner $wm_setting_gap_inner
 smart_gaps on
 
 ### Borders ###
