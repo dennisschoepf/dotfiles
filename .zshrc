@@ -126,11 +126,9 @@ zinit light-mode for \
 # --- PACKAGES ---
 zinit ice depth"1"
 zinit light romkatv/powerlevel10k
-zinit light redxtech/zsh-asdf-direnv
 zinit light jeffreytse/zsh-vi-mode
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
-zinit light zdharma-continuum/history-search-multi-word
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
