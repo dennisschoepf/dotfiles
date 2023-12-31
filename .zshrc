@@ -8,6 +8,8 @@ fi
 # My configuration
 export LANG=en_US.UTF-8
 export EDITOR='nvim'
+export GOPATH=$HOME/go
+export VOLTA_HOME=$HOME/volta
 
 # PATH variables
 export PATH=$HOME/.local/bin:$PATH
@@ -16,8 +18,7 @@ export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/go/bin:$PATH
 export PATH=/usr/local/go/bin:$PATH
 export PATH=/usr/local/bin:$PATH
-
-export GOPATH=$HOME/go
+export PATH=$VOLTA_HOME/bin:$PATH
 
 # General aliases
 alias zshc="nvim ~/.zshrc"
@@ -110,10 +111,10 @@ if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
         print -P "%F{160} The clone has failed.%f%b"
 fi
 
-source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
 zinit light-mode for \
@@ -136,7 +137,7 @@ zinit light zdharma-continuum/history-search-multi-word
 ### End of Zinit's installer chunk
 
 # Tmux Autostart
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+if [ -z "$TMUX" ]; then
   if [[ $(hostname) == "contraption.digital-h.de" ]]; then
     exec tmux new-session -A -s dev
   else
