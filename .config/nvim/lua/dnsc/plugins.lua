@@ -71,6 +71,7 @@ local plugins = {
     build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
   },
   -- Note Taking Setup
+  "folke/zen-mode.nvim",
   {
     "nvim-neorg/neorg",
     run = ":Neorg sync-parsers", -- This is the important bit!
