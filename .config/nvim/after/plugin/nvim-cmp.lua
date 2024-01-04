@@ -21,6 +21,7 @@ cmp.setup({
     { name = "nvim_lsp", keyword_length = 1 },
     { name = "path" },
     { name = "buffer", keyword_length = 3 },
+    { name = "neorg" },
     { name = "luasnip" }, -- For luasnip users.
   }),
 })
