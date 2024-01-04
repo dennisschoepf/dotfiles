@@ -28,7 +28,7 @@ require("neorg").setup({
         zen_mode = "zen-mode",
       },
     },
-    ["core.ui.calendar"] = {},
+    -- Enable on neovim 0.10.0 ["core.ui.calendar"] = {},
     ["core.keybinds"] = {
       config = {
         hook = function(keybinds)
