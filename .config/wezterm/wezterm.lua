@@ -30,6 +30,10 @@ config.window_padding = get_padding(25)
 config.colors = { foreground = "white" }
 
 -- Overrides
+if hn == "dnsc-xps" then
+  config.front_end = "OpenGL"
+end
+
 -- Overrides for Mac
 if hn == "contraption.digital-h.de" then
   config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Regular" })
