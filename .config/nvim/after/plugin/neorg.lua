@@ -6,7 +6,6 @@ require("neorg").setup({
         workspaces = {
           work = "~/notes/work",
           personal = "~/notes/personal",
-          memex = "~/notes/memex",
         },
       },
     },
@@ -31,6 +30,8 @@ require("neorg").setup({
     -- Enable on neovim 0.10.0 ["core.ui.calendar"] = {},
     ["core.keybinds"] = {
       config = {
+        default_keybinds = true,
+        neorg_leader = "<Leader>o",
         hook = function(keybinds)
           keybinds.map("norg", "n", "<Leader>oec", "core.looking-glass.magnify-code-block")
         end,
