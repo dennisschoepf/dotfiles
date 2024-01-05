@@ -30,4 +30,8 @@ shift + cmd - 6 : yabai -m window --space 6; yabai -m space --focus 6;
 
 cmd + shift - r : yabai --stop-service && skhd --stop-service && skhd --start-service && yabai --start-service
 
-cmd + ctrl - j : wezterm start nvim ~/notes; yabai -m window --focus west;
+# Application Launchers
+cmd + t : open -na /Applications/WezTerm.app
+cmd + b : open -na /Applications/Firefox.app
+cmd + f : open -na /System/Library/CoreServices/Finder.app/
+cmd + n : wezterm start nvim ~/notes; yabai -m signal --add event=space_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id)";

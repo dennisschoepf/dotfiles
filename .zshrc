@@ -74,24 +74,6 @@ if [[ $(hostname) == "contraption.digital-h.de" ]]; then
   alias cdrmes="cd ~/Projects/ride/apps/backend/backend-services/media-service"
   alias cdras="cd ~/Projects/ride/apps/backend/edge-services/abo-service"
 
-  # Zeit DB
-  export ZEIT_DB="$HOME/.config/zeit.db"
-
-  # Zeit aliases
-  alias z='zeit'
-  alias zf='zeit finish'
-  alias zp='zeit track -p '
-  alias zpr='zeit track -p RIDE'
-  alias zpm='zeit track -p Meetings'
-  alias zps='zeit track -p Setup'
-  alias zpp='zeit track -p PM'
-  alias zpi='zeit track -p Internal'
-  alias zl='zeit list'
-  alias zs='zeit stats'
-  alias zt='zeit tracking'
-  alias ze="zeit entry \`zeit --no-colors list | tail -1 | awk '{print \$1}'\`"
-  alias zrm="zeit erase \`zeit --no-colors list | tail -1 | awk '{print \$1}'\`"
-
   ## NVM Setup
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
