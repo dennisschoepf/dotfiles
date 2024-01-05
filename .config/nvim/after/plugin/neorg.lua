@@ -33,9 +33,16 @@ require("neorg").setup({
         default_keybinds = true,
         neorg_leader = "<Leader>o",
         hook = function(keybinds)
+          -- Normal Mode
           keybinds.map("norg", "n", "<Leader>oec", "core.looking-glass.magnify-code-block")
+          keybinds.map("norg", "n", "<Leader>ofh", "core.integrations.telescope.search_headings")
+          keybinds.map("norg", "n", "<Leader>off", "core.integrations.telescope.find_linkable")
+
+          -- Insert Mode
+          keybinds.map("norg", "i", "<C-l>", "core.integrations.telescope.insert_file_link")
         end,
       },
     },
+    ["core.integrations.telescope"] = {},
   },
 })

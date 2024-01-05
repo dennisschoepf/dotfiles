@@ -74,7 +74,8 @@ local plugins = {
   "folke/zen-mode.nvim",
   {
     "nvim-neorg/neorg",
-    run = ":Neorg sync-parsers", -- This is the important bit!
+    run = ":Neorg sync-parsers",
+    dependencies = { { "nvim-lua/plenary.nvim" }, { "nvim-neorg/neorg-telescope" } },
   },
 }
 
