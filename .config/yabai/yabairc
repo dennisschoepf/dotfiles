@@ -17,3 +17,8 @@ yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Karabiner-Elements$" manage=off
 yabai -m rule --add app="^Bitwarden$" manage=off
 
+yabai -m rule --add app="^Chrome$" space=^1
+yabai -m rule --add app="^Firefox$" space=^1
+yabai -m rule --add app="^XCode$" space=^3
+yabai -m rule --add app="^Spotify$" space=^5
+yabai -m rule --add app="^Music$" space=^5
