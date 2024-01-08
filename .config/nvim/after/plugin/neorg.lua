@@ -12,6 +12,7 @@ require("neorg").setup({
     ["core.journal"] = {
       config = {
         journal_folder = "dailies",
+        strategy = "flat",
       },
     },
     ["core.completion"] = {
@@ -35,11 +36,11 @@ require("neorg").setup({
         hook = function(keybinds)
           -- Normal Mode
           keybinds.map("norg", "n", "<Leader>oec", "core.looking-glass.magnify-code-block")
-          keybinds.map("norg", "n", "<Leader>ofh", "core.integrations.telescope.search_headings")
-          keybinds.map("norg", "n", "<Leader>off", "core.integrations.telescope.find_linkable")
+          keybinds.map_event("norg", "n", "<Leader>ofh", "core.integrations.telescope.search_headings")
+          keybinds.map_event("norg", "n", "<Leader>off", "core.integrations.telescope.find_linkable")
 
           -- Insert Mode
-          keybinds.map("norg", "i", "<C-l>", "core.integrations.telescope.insert_file_link")
+          keybinds.map_event("norg", "i", "<C-l>", "core.integrations.telescope.insert_file_link")
         end,
       },
     },
