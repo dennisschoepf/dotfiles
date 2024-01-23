@@ -123,3 +123,5 @@ if [ -z "$TMUX" ]; then
   fi
 fi
 
+
+eval "$(atuin init zsh)"
