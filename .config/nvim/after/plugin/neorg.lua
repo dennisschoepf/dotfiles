@@ -4,13 +4,13 @@ require("neorg").setup({
     ["core.dirman"] = {
       config = {
         workspaces = {
-          work = "~/notes/work",
-          personal = "~/notes/personal",
+          default = "~/notes",
         },
       },
     },
     ["core.journal"] = {
       config = {
+        workspace = "default",
         journal_folder = "dailies",
         strategy = "flat",
       },
