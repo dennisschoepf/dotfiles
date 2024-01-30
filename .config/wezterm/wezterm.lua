@@ -24,20 +24,17 @@ end
 config.font = wezterm.font('JetBrainsMono Nerd Font')
 config.font_size = 14.0
 config.color_scheme = 'catppuccin-mocha'
-config.window_decorations = "RESIZE"
+config.window_decorations = "NONE"
 config.enable_tab_bar = false
 config.window_padding = get_padding(25)
+config.window_background_opacity = 0.94
 config.colors = { foreground = "white" }
 
 -- Overrides
-if hn == "dnsc-xps" then
-  config.front_end = "OpenGL"
-end
-
--- Overrides for Mac
 if hn == "contraption.digital-h.de" then
   config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Regular" })
   config.font_size = 17.5
+  config.window_decorations = "RESIZE"
   config.window_padding = get_padding(30)
 end
 
