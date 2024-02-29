@@ -38,6 +38,12 @@ if hn == "contraption.digital-h.de" then
 	config.window_padding = get_padding(30)
 end
 
+if hn == "dnsc-desktop" then
+	config.window_decorations = "RESIZE"
+	config.window_padding = get_padding(20)
+	config.window_background_opacity = 0.97
+end
+
 -- Keybindings
 config.keys = {
 	{ key = "v", mods = "SUPER", action = act.PasteFrom("Clipboard") },
