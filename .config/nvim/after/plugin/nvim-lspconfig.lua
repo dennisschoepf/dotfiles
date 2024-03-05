@@ -8,6 +8,7 @@ local servers = {
   "lua_ls",
   "jsonls",
   "html",
+  "eslint",
   "cssls",
   "tailwindcss",
   "gopls",
@@ -81,6 +82,17 @@ lspconfig.tailwindcss.setup({
 -- Go
 lspconfig.gopls.setup({
   capabilities = capabilities,
+})
+
+-- eslint
+lspconfig.eslint.setup({
+  capabilities = capabilities,
+  on_attach = function(client, bufnr)
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      command = "EslintFixAll",
+    })
+  end,
 })
 
 -- LSP Keybindings
