@@ -75,6 +75,7 @@ which_key.register({
   o = {
     name = "+organize (neorg)",
     t = { '<cmd>e + "~/notes/todo.txt"', "Open Tasks" },
+    v = { '<cmd>85vsplit | e + "~/notes/todo.txt"<cr>', "Open tasks to the side" },
     n = { "<cmd>e ~/notes/reference/", "Open reference notes" },
     m = { "<cmd>e ~/notes/meetings/", "Open meeting notes" },
     p = { "<cmd>e ~/notes/projects/", "Open project notes" },
