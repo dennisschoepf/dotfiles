@@ -42,6 +42,8 @@ alias v="nvim"
 alias tmuxrefresh="stty sane; printf '\033k%s\033\\\033]2;%s\007' "`basename "$SHELL"`" "`uname -n`"; tput reset; tmux refresh"
 alias stgui="ssh -L 9090:localhost:8384 dnsc"
 alias cat="bat"
+alias t="nvim ~/notes/todo.txt +$"
+alias ts="tmux split-window -h \"nvim ~/notes/todo.txt +$\""
 
 # YADM aliases
 alias ys="yadm status"
