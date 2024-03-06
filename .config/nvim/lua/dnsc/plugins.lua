@@ -28,6 +28,7 @@ local plugins = {
   -- Git
   "kdheepak/lazygit.nvim",
   "lewis6991/gitsigns.nvim",
+  "linrongbin16/gitlinker.nvim",
   -- Bufferline
   "romgrk/barbar.nvim",
   -- Statusline

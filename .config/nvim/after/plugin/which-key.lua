@@ -67,6 +67,10 @@ which_key.register({
     name = "+git",
     g = { "<cmd>LazyGit<CR>", "Opens lazygit" },
     b = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle git line blame" },
+    l = {
+      o = { "<cmd>GitLink!<cr>", "Open permalink in browser" },
+      y = { "<cmd>GitLink<cr>", "Copy permalink" },
+    },
   },
   t = {
     name = "+diagnostics (lsp)",
