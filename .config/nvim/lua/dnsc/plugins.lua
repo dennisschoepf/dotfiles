@@ -73,6 +73,8 @@ local plugins = {
   },
   -- Note Taking Setup
   "folke/zen-mode.nvim",
+  -- Copilot
+  "zbirenbaum/copilot.lua",
 }
 
 local opts = {}
